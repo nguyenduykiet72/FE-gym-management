@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -90,7 +90,10 @@ const Header = () => {
             <Link to="/classes" className="block px-3 py-2 rounded-md text-white hover:bg-gray-700">
               Lớp học
             </Link>
-            <Link to="/trainers" className="block px-3 py-2 rounded-md text-white hover:bg-gray-700">
+            <Link
+              to="/trainers"
+              className="block px-3 py-2 rounded-md text-white hover:bg-gray-700"
+            >
               Huấn luyện viên
             </Link>
             <Link to="/pricing" className="block px-3 py-2 rounded-md text-white hover:bg-gray-700">

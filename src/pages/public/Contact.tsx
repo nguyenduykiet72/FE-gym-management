@@ -1,19 +1,21 @@
-import { useState } from "react";
-import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -32,11 +34,11 @@ const Contact = () => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
       setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
       });
     }, 1500);
   };
@@ -47,7 +49,9 @@ const Contact = () => {
       <section className="py-16 md:py-24 bg-gradient-to-r from-dark to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">Liên hệ với chúng tôi</h1>
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+              Liên hệ với chúng tôi
+            </h1>
             <p className="mt-6 text-xl text-gray-300">
               Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn trong hành trình fitness của mình
             </p>
@@ -61,7 +65,9 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
             {/* Contact Info */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Thông tin liên hệ</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+                Thông tin liên hệ
+              </h2>
 
               <div className="space-y-6">
                 {/* Address */}
@@ -139,7 +145,9 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Gửi tin nhắn cho chúng tôi</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                Gửi tin nhắn cho chúng tôi
+              </h2>
 
               {submitSuccess ? (
                 <div className="bg-green-50 p-4 rounded-md mb-6">
@@ -160,9 +168,14 @@ const Contact = () => {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-sm font-medium text-green-800">Gửi tin nhắn thành công</h3>
+                      <h3 className="text-sm font-medium text-green-800">
+                        Gửi tin nhắn thành công
+                      </h3>
                       <div className="mt-2 text-sm text-green-700">
-                        <p>Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+                        <p>
+                          Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi trong thời gian
+                          sớm nhất.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -190,7 +203,10 @@ const Contact = () => {
                     <div className="ml-3">
                       <h3 className="text-sm font-medium text-red-800">Có lỗi xảy ra</h3>
                       <div className="mt-2 text-sm text-red-700">
-                        <p>Đã có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau hoặc liên hệ qua điện thoại.</p>
+                        <p>
+                          Đã có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau hoặc liên hệ qua
+                          điện thoại.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -290,10 +306,10 @@ const Contact = () => {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ${
-                      isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                     }`}
                   >
-                    {isSubmitting ? "Đang gửi..." : "Gửi tin nhắn"}
+                    {isSubmitting ? 'Đang gửi...' : 'Gửi tin nhắn'}
                   </button>
                 </div>
               </form>
@@ -312,7 +328,8 @@ const Contact = () => {
                   <span className="block">Bạn muốn trải nghiệm trước khi đăng ký?</span>
                 </h2>
                 <p className="mt-4 text-lg leading-6 text-white">
-                  Đăng ký tham quan cơ sở và nhận một buổi tập thử miễn phí với huấn luyện viên của chúng tôi.
+                  Đăng ký tham quan cơ sở và nhận một buổi tập thử miễn phí với huấn luyện viên của
+                  chúng tôi.
                 </p>
                 <a
                   href="tel:+84901234567"

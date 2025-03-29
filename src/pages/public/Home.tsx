@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
   ChevronRightIcon,
   CheckCircleIcon,
@@ -6,7 +6,7 @@ import {
   HeartIcon,
   LightBulbIcon,
   ArrowLongRightIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 const Home = () => {
   return (
@@ -14,20 +14,29 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-r from-dark to-gray-800">
         <div className="absolute inset-0 z-0 opacity-20">
-          <img src="/gym-background.avif" alt="Gym Equipment" className="object-cover w-full h-full" />
+          <img
+            src="/gym-background.avif"
+            alt="Gym Equipment"
+            className="object-cover w-full h-full"
+          />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                Nâng cao sức khỏe và thể lực của bạn với <span className="text-primary">FitHub Pro</span>
+                Nâng cao sức khỏe và thể lực của bạn với{' '}
+                <span className="text-primary">FitHub Pro</span>
               </h1>
               <p className="mt-6 text-xl text-gray-300">
-                Chúng tôi cung cấp môi trường tập luyện chất lượng cao với các thiết bị hiện đại và đội ngũ huấn luyện
-                viên chuyên nghiệp để giúp bạn đạt được mục tiêu sức khỏe và thể hình.
+                Chúng tôi cung cấp môi trường tập luyện chất lượng cao với các thiết bị hiện đại và
+                đội ngũ huấn luyện viên chuyên nghiệp để giúp bạn đạt được mục tiêu sức khỏe và thể
+                hình.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Link to="/login" className="btn btn-primary flex items-center justify-center gap-2">
+                <Link
+                  to="/login"
+                  className="btn btn-primary flex items-center justify-center gap-2"
+                >
                   Bắt đầu ngay
                   <ChevronRightIcon className="h-5 w-5" />
                 </Link>
@@ -57,9 +66,12 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Tại sao chọn FitHub Pro?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Tại sao chọn FitHub Pro?
+            </h2>
             <p className="mt-4 text-xl text-gray-600">
-              Chúng tôi cung cấp dịch vụ tập luyện tiêu chuẩn quốc tế giúp bạn đạt được mục tiêu sức khỏe.
+              Chúng tôi cung cấp dịch vụ tập luyện tiêu chuẩn quốc tế giúp bạn đạt được mục tiêu sức
+              khỏe.
             </p>
           </div>
 
@@ -69,9 +81,12 @@ const Home = () => {
               <div className="h-12 w-12 rounded-md bg-primary/10 flex items-center justify-center mb-5">
                 <UserGroupIcon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Huấn luyện viên chuyên nghiệp</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Huấn luyện viên chuyên nghiệp
+              </h3>
               <p className="text-gray-600">
-                Đội ngũ huấn luyện viên giàu kinh nghiệm sẽ hướng dẫn bạn các bài tập phù hợp và hiệu quả.
+                Đội ngũ huấn luyện viên giàu kinh nghiệm sẽ hướng dẫn bạn các bài tập phù hợp và
+                hiệu quả.
               </p>
             </div>
 
@@ -82,7 +97,8 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Thiết bị hiện đại</h3>
               <p className="text-gray-600">
-                Chúng tôi đầu tư vào các thiết bị tập luyện hiện đại, đảm bảo an toàn và hiệu quả cho việc tập luyện.
+                Chúng tôi đầu tư vào các thiết bị tập luyện hiện đại, đảm bảo an toàn và hiệu quả
+                cho việc tập luyện.
               </p>
             </div>
 
@@ -93,7 +109,8 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Lịch tập linh hoạt</h3>
               <p className="text-gray-600">
-                Với nhiều lớp học khác nhau và lịch trình linh hoạt, bạn dễ dàng sắp xếp thời gian tập luyện.
+                Với nhiều lớp học khác nhau và lịch trình linh hoạt, bạn dễ dàng sắp xếp thời gian
+                tập luyện.
               </p>
             </div>
           </div>
@@ -105,7 +122,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Gói thành viên</h2>
-            <p className="mt-4 text-xl text-gray-600">Chọn gói phù hợp với nhu cầu và mục tiêu của bạn</p>
+            <p className="mt-4 text-xl text-gray-600">
+              Chọn gói phù hợp với nhu cầu và mục tiêu của bạn
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -217,21 +236,34 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Huấn luyện viên hàng đầu</h2>
-            <p className="mt-4 text-xl text-gray-600">Đội ngũ huấn luyện viên chuyên nghiệp và giàu kinh nghiệm</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Huấn luyện viên hàng đầu
+            </h2>
+            <p className="mt-4 text-xl text-gray-600">
+              Đội ngũ huấn luyện viên chuyên nghiệp và giàu kinh nghiệm
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Trainer 1 */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="aspect-w-1 aspect-h-1">
-                <img src="/trainer02.avif" alt="Huấn luyện viên Tom Johnson" className="object-cover w-full h-64" />
+                <img
+                  src="/trainer02.avif"
+                  alt="Huấn luyện viên Tom Johnson"
+                  className="object-cover w-full h-64"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">Tom Johnson</h3>
                 <p className="text-primary font-medium">Chuyên gia thể hình</p>
-                <p className="mt-3 text-gray-600">Hơn 10 năm kinh nghiệm trong lĩnh vực thể hình và sức mạnh.</p>
-                <Link to="/trainers" className="mt-4 inline-flex items-center text-primary hover:underline">
+                <p className="mt-3 text-gray-600">
+                  Hơn 10 năm kinh nghiệm trong lĩnh vực thể hình và sức mạnh.
+                </p>
+                <Link
+                  to="/trainers"
+                  className="mt-4 inline-flex items-center text-primary hover:underline"
+                >
                   Xem chi tiết
                   <ArrowLongRightIcon className="h-5 w-5 ml-1" />
                 </Link>
@@ -241,13 +273,22 @@ const Home = () => {
             {/* Trainer 2 */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="aspect-w-1 aspect-h-1">
-                <img src="/trainer01.avif" alt="Huấn luyện viên Anna Smith" className="object-cover w-full h-64" />
+                <img
+                  src="/trainer01.avif"
+                  alt="Huấn luyện viên Anna Smith"
+                  className="object-cover w-full h-64"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">Anna Smith</h3>
                 <p className="text-primary font-medium">Chuyên gia Yoga</p>
-                <p className="mt-3 text-gray-600">Chứng chỉ Yoga quốc tế với 8 năm kinh nghiệm hướng dẫn.</p>
-                <Link to="/trainers" className="mt-4 inline-flex items-center text-primary hover:underline">
+                <p className="mt-3 text-gray-600">
+                  Chứng chỉ Yoga quốc tế với 8 năm kinh nghiệm hướng dẫn.
+                </p>
+                <Link
+                  to="/trainers"
+                  className="mt-4 inline-flex items-center text-primary hover:underline"
+                >
                   Xem chi tiết
                   <ArrowLongRightIcon className="h-5 w-5 ml-1" />
                 </Link>
@@ -257,13 +298,22 @@ const Home = () => {
             {/* Trainer 3 */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="aspect-w-1 aspect-h-1">
-                <img src="/trainer03.avif" alt="Huấn luyện viên Michael Chen" className="object-cover w-full h-64" />
+                <img
+                  src="/trainer03.avif"
+                  alt="Huấn luyện viên Michael Chen"
+                  className="object-cover w-full h-64"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">Michael Chen</h3>
                 <p className="text-primary font-medium">Chuyên gia HIIT & Cardio</p>
-                <p className="mt-3 text-gray-600">Chuyên về các bài tập cường độ cao và cardio hiệu quả.</p>
-                <Link to="/trainers" className="mt-4 inline-flex items-center text-primary hover:underline">
+                <p className="mt-3 text-gray-600">
+                  Chuyên về các bài tập cường độ cao và cardio hiệu quả.
+                </p>
+                <Link
+                  to="/trainers"
+                  className="mt-4 inline-flex items-center text-primary hover:underline"
+                >
                   Xem chi tiết
                   <ArrowLongRightIcon className="h-5 w-5 ml-1" />
                 </Link>
@@ -273,13 +323,22 @@ const Home = () => {
             {/* Trainer 4 */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="aspect-w-1 aspect-h-1">
-                <img src="/trainer04.avif" alt="Huấn luyện viên Lisa Rodriguez" className="object-cover w-full h-64" />
+                <img
+                  src="/trainer04.avif"
+                  alt="Huấn luyện viên Lisa Rodriguez"
+                  className="object-cover w-full h-64"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">Lisa Rodriguez</h3>
                 <p className="text-primary font-medium">Chuyên gia Pilates</p>
-                <p className="mt-3 text-gray-600">Hướng dẫn Pilates và các bài tập kéo giãn chuyên nghiệp.</p>
-                <Link to="/trainers" className="mt-4 inline-flex items-center text-primary hover:underline">
+                <p className="mt-3 text-gray-600">
+                  Hướng dẫn Pilates và các bài tập kéo giãn chuyên nghiệp.
+                </p>
+                <Link
+                  to="/trainers"
+                  className="mt-4 inline-flex items-center text-primary hover:underline"
+                >
                   Xem chi tiết
                   <ArrowLongRightIcon className="h-5 w-5 ml-1" />
                 </Link>
@@ -296,11 +355,14 @@ const Home = () => {
             Sẵn sàng bắt đầu hành trình fitness của bạn?
           </h2>
           <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
-            Đăng ký thành viên ngay hôm nay và bắt đầu hành trình cải thiện sức khỏe cùng đội ngũ chuyên nghiệp của
-            chúng tôi.
+            Đăng ký thành viên ngay hôm nay và bắt đầu hành trình cải thiện sức khỏe cùng đội ngũ
+            chuyên nghiệp của chúng tôi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/login" className="btn bg-white text-primary hover:bg-white/90 flex items-center justify-center">
+            <Link
+              to="/login"
+              className="btn bg-white text-primary hover:bg-white/90 flex items-center justify-center"
+            >
               Đăng ký ngay
             </Link>
             <Link

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   UserIcon,
   PencilIcon,
@@ -10,26 +10,26 @@ import {
   ChartBarIcon,
   BookmarkIcon,
   ShieldCheckIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 const MemberProfile = () => {
   // Member data state
   const [memberData, setMemberData] = useState({
     id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
-    phone: "(555) 123-4567",
-    address: "123 Fitness Street",
-    city: "Gym City",
-    dateOfBirth: "1990-05-15",
-    gender: "male",
-    emergencyContact: "Jane Doe",
-    emergencyPhone: "(555) 987-6543",
-    membershipType: "Quarterly",
-    memberSince: "2023-01-15",
-    membershipStatus: "Active",
-    expiryDate: "2023-10-15",
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john.doe@example.com',
+    phone: '(555) 123-4567',
+    address: '123 Fitness Street',
+    city: 'Gym City',
+    dateOfBirth: '1990-05-15',
+    gender: 'male',
+    emergencyContact: 'Jane Doe',
+    emergencyPhone: '(555) 987-6543',
+    membershipType: 'Quarterly',
+    memberSince: '2023-01-15',
+    membershipStatus: 'Active',
+    expiryDate: '2023-10-15',
     remainingPT: 4,
   });
 
@@ -38,10 +38,10 @@ const MemberProfile = () => {
     height: 175, // cm
     weight: 70, // kg
     bmi: 22.9,
-    goals: ["Weight Loss", "Muscle Gain", "Improve Flexibility"],
-    medicalConditions: "None",
-    allergies: "None",
-    lastAssessment: "2023-05-20",
+    goals: ['Weight Loss', 'Muscle Gain', 'Improve Flexibility'],
+    medicalConditions: 'None',
+    allergies: 'None',
+    lastAssessment: '2023-05-20',
   });
 
   // Edit states
@@ -54,25 +54,25 @@ const MemberProfile = () => {
 
   // Activity data (would come from backend in real app)
   const recentActivity = [
-    { type: "check-in", date: "2023-06-28", time: "09:15 AM" },
-    { type: "class", name: "HIIT Challenge", date: "2023-06-26", time: "06:00 PM" },
-    { type: "pt-session", trainer: "Alex Johnson", date: "2023-06-24", time: "11:00 AM" },
-    { type: "check-in", date: "2023-06-23", time: "08:30 AM" },
-    { type: "class", name: "Yoga Flow", date: "2023-06-21", time: "07:00 AM" },
+    { type: 'check-in', date: '2023-06-28', time: '09:15 AM' },
+    { type: 'class', name: 'HIIT Challenge', date: '2023-06-26', time: '06:00 PM' },
+    { type: 'pt-session', trainer: 'Alex Johnson', date: '2023-06-24', time: '11:00 AM' },
+    { type: 'check-in', date: '2023-06-23', time: '08:30 AM' },
+    { type: 'class', name: 'Yoga Flow', date: '2023-06-21', time: '07:00 AM' },
   ];
 
   // Upcoming schedule
   const upcomingSchedule = [
-    { type: "class", name: "Cardio Blast", date: "2023-06-30", time: "08:00 AM" },
-    { type: "pt-session", trainer: "Alex Johnson", date: "2023-07-01", time: "10:00 AM" },
-    { type: "class", name: "HIIT Challenge", date: "2023-07-03", time: "06:00 PM" },
+    { type: 'class', name: 'Cardio Blast', date: '2023-06-30', time: '08:00 AM' },
+    { type: 'pt-session', trainer: 'Alex Johnson', date: '2023-07-01', time: '10:00 AM' },
+    { type: 'class', name: 'HIIT Challenge', date: '2023-07-03', time: '06:00 PM' },
   ];
 
   // Goal progress
   const goalProgress = [
-    { name: "Cardio Sessions", target: 12, current: 8 },
-    { name: "Weight Training", target: 16, current: 10 },
-    { name: "Weight Loss", target: 5, current: 3.2 },
+    { name: 'Cardio Sessions', target: 12, current: 8 },
+    { name: 'Weight Training', target: 16, current: 10 },
+    { name: 'Weight Loss', target: 5, current: 3.2 },
   ];
 
   // Calculate BMI from height and weight
@@ -91,7 +91,9 @@ const MemberProfile = () => {
   };
 
   // Handle health form input changes
-  const handleHealthChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleHealthChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setHealthFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -181,7 +183,10 @@ const MemberProfile = () => {
                   <form onSubmit={handleProfileSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="firstName"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Tên
                         </label>
                         <input
@@ -195,7 +200,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="lastName"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Họ
                         </label>
                         <input
@@ -209,7 +217,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Email
                         </label>
                         <input
@@ -223,7 +234,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="phone"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Số điện thoại
                         </label>
                         <input
@@ -237,7 +251,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="address"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Địa chỉ
                         </label>
                         <input
@@ -251,7 +268,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="city"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Thành phố
                         </label>
                         <input
@@ -265,7 +285,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="dateOfBirth"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Ngày sinh
                         </label>
                         <input
@@ -279,7 +302,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="gender"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Giới tính
                         </label>
                         <select
@@ -296,7 +322,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="emergencyContact" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="emergencyContact"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Người liên hệ khẩn cấp
                         </label>
                         <input
@@ -310,7 +339,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="emergencyPhone"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           SĐT liên hệ khẩn cấp
                         </label>
                         <input
@@ -368,7 +400,11 @@ const MemberProfile = () => {
                     <div>
                       <h3 className="text-sm font-medium text-gray-500">Giới tính</h3>
                       <p className="mt-1 text-sm text-gray-900">
-                        {memberData.gender === "male" ? "Nam" : memberData.gender === "female" ? "Nữ" : "Khác"}
+                        {memberData.gender === 'male'
+                          ? 'Nam'
+                          : memberData.gender === 'female'
+                            ? 'Nữ'
+                            : 'Khác'}
                       </p>
                     </div>
 
@@ -390,7 +426,9 @@ const MemberProfile = () => {
             <div className="bg-white shadow rounded-lg mb-6">
               <div className="px-6 py-5 border-b border-gray-200">
                 <div className="flex justify-between items-center">
-                  <h2 className="text-lg font-medium text-gray-900">Thông tin sức khỏe và thể chất</h2>
+                  <h2 className="text-lg font-medium text-gray-900">
+                    Thông tin sức khỏe và thể chất
+                  </h2>
                   {!isEditingHealth && (
                     <button
                       onClick={() => setIsEditingHealth(true)}
@@ -408,7 +446,10 @@ const MemberProfile = () => {
                   <form onSubmit={handleHealthSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="height" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="height"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Chiều cao (cm)
                         </label>
                         <input
@@ -422,7 +463,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div>
-                        <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="weight"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Cân nặng (kg)
                         </label>
                         <input
@@ -436,15 +480,17 @@ const MemberProfile = () => {
                       </div>
 
                       <div className="md:col-span-2">
-                        <p className="block text-sm font-medium text-gray-700 mb-2">Mục tiêu tập luyện</p>
+                        <p className="block text-sm font-medium text-gray-700 mb-2">
+                          Mục tiêu tập luyện
+                        </p>
                         <div className="grid grid-cols-2 gap-2">
                           {[
-                            "Weight Loss",
-                            "Muscle Gain",
-                            "Improve Flexibility",
-                            "Cardio Fitness",
-                            "General Health",
-                            "Strength Training",
+                            'Weight Loss',
+                            'Muscle Gain',
+                            'Improve Flexibility',
+                            'Cardio Fitness',
+                            'General Health',
+                            'Strength Training',
                           ].map((goal) => (
                             <label key={goal} className="inline-flex items-center">
                               <input
@@ -462,7 +508,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div className="md:col-span-2">
-                        <label htmlFor="medicalConditions" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="medicalConditions"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Tình trạng y tế
                         </label>
                         <textarea
@@ -476,7 +525,10 @@ const MemberProfile = () => {
                       </div>
 
                       <div className="md:col-span-2">
-                        <label htmlFor="allergies" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label
+                          htmlFor="allergies"
+                          className="block text-sm font-medium text-gray-700 mb-1"
+                        >
                           Dị ứng
                         </label>
                         <textarea
@@ -505,12 +557,16 @@ const MemberProfile = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                       <div className="bg-gray-50 rounded-lg p-4">
                         <h3 className="text-sm font-medium text-gray-500">Chiều cao</h3>
-                        <p className="mt-1 text-lg font-medium text-gray-900">{healthData.height} cm</p>
+                        <p className="mt-1 text-lg font-medium text-gray-900">
+                          {healthData.height} cm
+                        </p>
                       </div>
 
                       <div className="bg-gray-50 rounded-lg p-4">
                         <h3 className="text-sm font-medium text-gray-500">Cân nặng</h3>
-                        <p className="mt-1 text-lg font-medium text-gray-900">{healthData.weight} kg</p>
+                        <p className="mt-1 text-lg font-medium text-gray-900">
+                          {healthData.weight} kg
+                        </p>
                       </div>
 
                       <div className="bg-gray-50 rounded-lg p-4">
@@ -566,16 +622,16 @@ const MemberProfile = () => {
                     <li key={index} className="py-3 flex items-center">
                       <div
                         className={`flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center ${
-                          activity.type === "check-in"
-                            ? "bg-green-100"
-                            : activity.type === "class"
-                            ? "bg-blue-100"
-                            : "bg-purple-100"
+                          activity.type === 'check-in'
+                            ? 'bg-green-100'
+                            : activity.type === 'class'
+                              ? 'bg-blue-100'
+                              : 'bg-purple-100'
                         }`}
                       >
-                        {activity.type === "check-in" ? (
+                        {activity.type === 'check-in' ? (
                           <CheckIcon className="h-5 w-5 text-green-600" />
-                        ) : activity.type === "class" ? (
+                        ) : activity.type === 'class' ? (
                           <UserIcon className="h-5 w-5 text-blue-600" />
                         ) : (
                           <ClockIcon className="h-5 w-5 text-purple-600" />
@@ -583,11 +639,11 @@ const MemberProfile = () => {
                       </div>
                       <div className="ml-4 flex-1">
                         <p className="text-sm font-medium text-gray-900">
-                          {activity.type === "check-in"
-                            ? "Check-in vào phòng tập"
-                            : activity.type === "class"
-                            ? `Tham gia lớp "${activity.name}"`
-                            : `Buổi PT với ${activity.trainer}`}
+                          {activity.type === 'check-in'
+                            ? 'Check-in vào phòng tập'
+                            : activity.type === 'class'
+                              ? `Tham gia lớp "${activity.name}"`
+                              : `Buổi PT với ${activity.trainer}`}
                         </p>
                         <p className="text-sm text-gray-500">
                           {activity.date} lúc {activity.time}
@@ -621,10 +677,10 @@ const MemberProfile = () => {
                     <p className="text-sm text-gray-500">Trạng thái</p>
                     <p
                       className={`text-sm font-medium ${
-                        memberData.membershipStatus === "Active" ? "text-green-600" : "text-red-600"
+                        memberData.membershipStatus === 'Active' ? 'text-green-600' : 'text-red-600'
                       }`}
                     >
-                      {memberData.membershipStatus === "Active" ? "Đang hoạt động" : "Hết hạn"}
+                      {memberData.membershipStatus === 'Active' ? 'Đang hoạt động' : 'Hết hạn'}
                     </p>
                   </div>
 
@@ -670,10 +726,10 @@ const MemberProfile = () => {
                       <div className="flex items-center">
                         <div
                           className={`flex-shrink-0 h-10 w-10 rounded-full flex items-center justify-center ${
-                            event.type === "class" ? "bg-blue-100" : "bg-purple-100"
+                            event.type === 'class' ? 'bg-blue-100' : 'bg-purple-100'
                           }`}
                         >
-                          {event.type === "class" ? (
+                          {event.type === 'class' ? (
                             <UserIcon className="h-5 w-5 text-blue-600" />
                           ) : (
                             <ClockIcon className="h-5 w-5 text-purple-600" />
@@ -681,7 +737,7 @@ const MemberProfile = () => {
                         </div>
                         <div className="ml-4">
                           <p className="text-sm font-medium text-gray-900">
-                            {event.type === "class" ? event.name : `Buổi PT với ${event.trainer}`}
+                            {event.type === 'class' ? event.name : `Buổi PT với ${event.trainer}`}
                           </p>
                           <div className="flex items-center text-sm text-gray-500">
                             <CalendarIcon className="flex-shrink-0 mr-1.5 h-4 w-4 text-gray-400" />

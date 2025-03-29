@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -25,8 +25,8 @@ const Footer = () => {
               <span className="ml-2 text-xl font-bold">FitHub Pro</span>
             </Link>
             <p className="mt-3 text-gray-400 text-sm">
-              Chúng tôi cung cấp dịch vụ tập luyện chất lượng cao với đội ngũ huấn luyện viên chuyên nghiệp và trang
-              thiết bị hiện đại.
+              Chúng tôi cung cấp dịch vụ tập luyện chất lượng cao với đội ngũ huấn luyện viên chuyên
+              nghiệp và trang thiết bị hiện đại.
             </p>
             <div className="mt-4 flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
@@ -60,7 +60,9 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="col-span-1">
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Liên kết nhanh</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">
+              Liên kết nhanh
+            </h3>
             <ul className="mt-4 space-y-2">
               <li>
                 <Link to="/" className="text-gray-400 hover:text-white transition-colors">
@@ -100,27 +102,42 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Dịch vụ</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="/services/fitness" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  to="/services/fitness"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Tập luyện thể hình
                 </Link>
               </li>
               <li>
-                <Link to="/services/cardio" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  to="/services/cardio"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Cardio
                 </Link>
               </li>
               <li>
-                <Link to="/services/yoga" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  to="/services/yoga"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Yoga
                 </Link>
               </li>
               <li>
-                <Link to="/services/personal-training" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  to="/services/personal-training"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Huấn luyện cá nhân
                 </Link>
               </li>
               <li>
-                <Link to="/services/nutrition" className="text-gray-400 hover:text-white transition-colors">
+                <Link
+                  to="/services/nutrition"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Tư vấn dinh dưỡng
                 </Link>
               </li>
@@ -132,7 +149,12 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Liên hệ</h3>
             <ul className="mt-4 space-y-2">
               <li className="flex items-start">
-                <svg className="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-6 w-6 text-gray-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -149,7 +171,12 @@ const Footer = () => {
                 <span className="text-gray-400">123 Fitness Street, Gym City, GC 12345</span>
               </li>
               <li className="flex items-start">
-                <svg className="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-6 w-6 text-gray-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -160,7 +187,12 @@ const Footer = () => {
                 <span className="text-gray-400">(123) 456-7890</span>
               </li>
               <li className="flex items-start">
-                <svg className="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-6 w-6 text-gray-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -171,7 +203,12 @@ const Footer = () => {
                 <span className="text-gray-400">info@fithubpro.com</span>
               </li>
               <li className="flex items-start">
-                <svg className="h-6 w-6 text-gray-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className="h-6 w-6 text-gray-400 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

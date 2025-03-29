@@ -1,49 +1,55 @@
-import { useState } from "react";
-import { PencilIcon, TrashIcon, MagnifyingGlassIcon, PlusIcon, CalendarIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import {
+  PencilIcon,
+  TrashIcon,
+  MagnifyingGlassIcon,
+  PlusIcon,
+  CalendarIcon,
+} from '@heroicons/react/24/outline';
 
 // Mock data for trainers
 const initialTrainers = [
   {
     id: 1,
-    name: "Tom Johnson",
-    email: "tom@fithub.com",
-    phone: "(555) 111-2233",
-    specialization: "Weight Training",
-    schedule: "Mon-Fri: 8AM-4PM",
-    status: "Active",
+    name: 'Tom Johnson',
+    email: 'tom@fithub.com',
+    phone: '(555) 111-2233',
+    specialization: 'Weight Training',
+    schedule: 'Mon-Fri: 8AM-4PM',
+    status: 'Active',
   },
   {
     id: 2,
-    name: "Anna Smith",
-    email: "anna@fithub.com",
-    phone: "(555) 222-3344",
-    specialization: "Yoga",
-    schedule: "Mon, Wed, Fri: 9AM-6PM",
-    status: "Active",
+    name: 'Anna Smith',
+    email: 'anna@fithub.com',
+    phone: '(555) 222-3344',
+    specialization: 'Yoga',
+    schedule: 'Mon, Wed, Fri: 9AM-6PM',
+    status: 'Active',
   },
   {
     id: 3,
-    name: "Michael Chen",
-    email: "michael@fithub.com",
-    phone: "(555) 333-4455",
-    specialization: "Cardio, HIIT",
-    schedule: "Tue, Thu, Sat: 7AM-3PM",
-    status: "Active",
+    name: 'Michael Chen',
+    email: 'michael@fithub.com',
+    phone: '(555) 333-4455',
+    specialization: 'Cardio, HIIT',
+    schedule: 'Tue, Thu, Sat: 7AM-3PM',
+    status: 'Active',
   },
   {
     id: 4,
-    name: "Lisa Rodriguez",
-    email: "lisa@fithub.com",
-    phone: "(555) 444-5566",
-    specialization: "Pilates, Stretching",
-    schedule: "Mon-Thu: 10AM-7PM",
-    status: "Inactive",
+    name: 'Lisa Rodriguez',
+    email: 'lisa@fithub.com',
+    phone: '(555) 444-5566',
+    specialization: 'Pilates, Stretching',
+    schedule: 'Mon-Thu: 10AM-7PM',
+    status: 'Inactive',
   },
 ];
 
 const Trainers = () => {
   const [trainers, setTrainers] = useState(initialTrainers);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Filter trainers based on search
   const filteredTrainers = trainers.filter(
@@ -116,7 +122,9 @@ const Trainers = () => {
                       <dd className="mt-1 text-sm">
                         <span
                           className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                            trainer.status === "Active" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                            trainer.status === 'Active'
+                              ? 'bg-green-100 text-green-800'
+                              : 'bg-red-100 text-red-800'
                           }`}
                         >
                           {trainer.status}

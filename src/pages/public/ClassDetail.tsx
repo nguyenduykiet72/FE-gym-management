@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import {
   ClockIcon,
   UserGroupIcon,
@@ -7,112 +7,112 @@ import {
   ChartBarIcon,
   CheckCircleIcon,
   ArrowLeftIcon,
-} from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
+} from '@heroicons/react/24/outline';
+import { StarIcon } from '@heroicons/react/24/solid';
 
 // This would be fetched from an API in a real application
 const classData = {
   cardio1: {
-    id: "cardio1",
-    name: "Cardio Blast",
-    category: "cardio",
-    difficulty: "intermediate",
+    id: 'cardio1',
+    name: 'Cardio Blast',
+    category: 'cardio',
+    difficulty: 'intermediate',
     duration: 45,
     capacity: 20,
     instructor: {
       id: 2,
-      name: "Anna Smith",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      name: 'Anna Smith',
+      image: 'https://randomuser.me/api/portraits/women/44.jpg',
       rating: 4.8,
     },
     schedule: [
-      { day: "Monday", time: "8:00 AM" },
-      { day: "Wednesday", time: "8:00 AM" },
-      { day: "Friday", time: "8:00 AM" },
+      { day: 'Monday', time: '8:00 AM' },
+      { day: 'Wednesday', time: '8:00 AM' },
+      { day: 'Friday', time: '8:00 AM' },
     ],
     description:
-      "Cardio Blast là một lớp học nhịp độ cao kết hợp các bài tập cardio mạnh mẽ để đốt cháy calo và cải thiện sức khỏe tim mạch. Lớp học này phù hợp cho người có thể lực trung bình muốn nâng cao độ bền sức bền.",
+      'Cardio Blast là một lớp học nhịp độ cao kết hợp các bài tập cardio mạnh mẽ để đốt cháy calo và cải thiện sức khỏe tim mạch. Lớp học này phù hợp cho người có thể lực trung bình muốn nâng cao độ bền sức bền.',
     benefits: [
-      "Đốt cháy nhiều calo",
-      "Cải thiện sức khỏe tim mạch",
-      "Tăng cường sức bền",
-      "Giảm căng thẳng",
-      "Cải thiện tâm trạng",
+      'Đốt cháy nhiều calo',
+      'Cải thiện sức khỏe tim mạch',
+      'Tăng cường sức bền',
+      'Giảm căng thẳng',
+      'Cải thiện tâm trạng',
     ],
-    requirements: ["Giày thể thao", "Nước uống", "Khăn mặt"],
+    requirements: ['Giày thể thao', 'Nước uống', 'Khăn mặt'],
     image:
-      "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      'https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     rating: 4.7,
     reviews: 128,
-    relatedClasses: ["hiit1", "cardio2", "strength1"],
+    relatedClasses: ['hiit1', 'cardio2', 'strength1'],
   },
   yoga1: {
-    id: "yoga1",
-    name: "Morning Yoga Flow",
-    category: "yoga",
-    difficulty: "beginner",
+    id: 'yoga1',
+    name: 'Morning Yoga Flow',
+    category: 'yoga',
+    difficulty: 'beginner',
     duration: 60,
     capacity: 15,
     instructor: {
       id: 2,
-      name: "Lisa Chen",
-      image: "https://randomuser.me/api/portraits/women/33.jpg",
+      name: 'Lisa Chen',
+      image: 'https://randomuser.me/api/portraits/women/33.jpg',
       rating: 4.9,
     },
     schedule: [
-      { day: "Tuesday", time: "7:00 AM" },
-      { day: "Thursday", time: "7:00 AM" },
-      { day: "Saturday", time: "9:00 AM" },
+      { day: 'Tuesday', time: '7:00 AM' },
+      { day: 'Thursday', time: '7:00 AM' },
+      { day: 'Saturday', time: '9:00 AM' },
     ],
     description:
-      "Morning Yoga Flow là lớp học nhẹ nhàng giúp khởi động ngày mới với các động tác yoga kết hợp với kỹ thuật thở. Phù hợp cho mọi cấp độ, đặc biệt là người mới bắt đầu muốn tăng cường sự linh hoạt và thư giãn.",
+      'Morning Yoga Flow là lớp học nhẹ nhàng giúp khởi động ngày mới với các động tác yoga kết hợp với kỹ thuật thở. Phù hợp cho mọi cấp độ, đặc biệt là người mới bắt đầu muốn tăng cường sự linh hoạt và thư giãn.',
     benefits: [
-      "Tăng cường sự linh hoạt",
-      "Cải thiện tư thế",
-      "Giảm căng thẳng",
-      "Tăng cường sức mạnh",
-      "Cải thiện sự tập trung",
+      'Tăng cường sự linh hoạt',
+      'Cải thiện tư thế',
+      'Giảm căng thẳng',
+      'Tăng cường sức mạnh',
+      'Cải thiện sự tập trung',
     ],
-    requirements: ["Thảm yoga", "Nước uống", "Trang phục thoải mái"],
+    requirements: ['Thảm yoga', 'Nước uống', 'Trang phục thoải mái'],
     image:
-      "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     rating: 4.8,
     reviews: 95,
-    relatedClasses: ["pilates1", "yoga2", "strength2"],
+    relatedClasses: ['pilates1', 'yoga2', 'strength2'],
   },
   hiit1: {
-    id: "hiit1",
-    name: "HIIT Challenge",
-    category: "hiit",
-    difficulty: "advanced",
+    id: 'hiit1',
+    name: 'HIIT Challenge',
+    category: 'hiit',
+    difficulty: 'advanced',
     duration: 30,
     capacity: 12,
     instructor: {
       id: 3,
-      name: "Michael Chen",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
+      name: 'Michael Chen',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
       rating: 4.7,
     },
     schedule: [
-      { day: "Monday", time: "6:00 PM" },
-      { day: "Wednesday", time: "6:00 PM" },
-      { day: "Friday", time: "6:00 PM" },
+      { day: 'Monday', time: '6:00 PM' },
+      { day: 'Wednesday', time: '6:00 PM' },
+      { day: 'Friday', time: '6:00 PM' },
     ],
     description:
-      "HIIT Challenge là một buổi tập cường độ cao với các đợt bùng nổ hoạt động cường độ cao xen kẽ với thời gian nghỉ ngơi ngắn. Khóa học này dành cho người có kinh nghiệm tập luyện muốn đạt được kết quả tối đa trong thời gian ngắn.",
+      'HIIT Challenge là một buổi tập cường độ cao với các đợt bùng nổ hoạt động cường độ cao xen kẽ với thời gian nghỉ ngơi ngắn. Khóa học này dành cho người có kinh nghiệm tập luyện muốn đạt được kết quả tối đa trong thời gian ngắn.',
     benefits: [
-      "Đốt cháy calo tối đa",
-      "Tăng tốc độ trao đổi chất",
-      "Cải thiện sức mạnh và sức bền",
-      "Tiếp tục đốt cháy calo sau khi tập",
-      "Không cần thiết bị phức tạp",
+      'Đốt cháy calo tối đa',
+      'Tăng tốc độ trao đổi chất',
+      'Cải thiện sức mạnh và sức bền',
+      'Tiếp tục đốt cháy calo sau khi tập',
+      'Không cần thiết bị phức tạp',
     ],
-    requirements: ["Giày thể thao", "Nước uống", "Khăn mặt", "Khả năng vận động tốt"],
+    requirements: ['Giày thể thao', 'Nước uống', 'Khăn mặt', 'Khả năng vận động tốt'],
     image:
-      "https://images.unsplash.com/photo-1434682881908-b43d0467b798?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      'https://images.unsplash.com/photo-1434682881908-b43d0467b798?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     rating: 4.9,
     reviews: 87,
-    relatedClasses: ["cardio1", "strength1", "hiit2"],
+    relatedClasses: ['cardio1', 'strength1', 'hiit2'],
   },
 };
 
@@ -120,7 +120,7 @@ const ClassDetail = () => {
   const { classId } = useParams<{ classId: string }>();
   const [classInfo, setClassInfo] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedTime, setSelectedTime] = useState("");
+  const [selectedTime, setSelectedTime] = useState('');
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
   useEffect(() => {
@@ -163,7 +163,9 @@ const ClassDetail = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center py-16">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Không tìm thấy lớp học</h1>
-          <p className="text-lg text-gray-600 mb-8">Lớp học bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.</p>
+          <p className="text-lg text-gray-600 mb-8">
+            Lớp học bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.
+          </p>
           <Link to="/classes" className="btn btn-primary">
             Quay lại danh sách lớp học
           </Link>
@@ -191,40 +193,40 @@ const ClassDetail = () => {
                 src={classInfo.image}
                 alt={classInfo.name}
                 className="h-full w-full object-cover"
-                style={{ maxHeight: "500px" }}
+                style={{ maxHeight: '500px' }}
               />
             </div>
             <div className="md:w-1/2 p-8">
               <div className="flex items-center mb-2">
                 <span
                   className={`inline-block px-3 py-1 text-xs font-semibold rounded-full mr-2 ${
-                    classInfo.category === "cardio"
-                      ? "bg-red-100 text-red-800"
-                      : classInfo.category === "yoga"
-                      ? "bg-blue-100 text-blue-800"
-                      : classInfo.category === "hiit"
-                      ? "bg-orange-100 text-orange-800"
-                      : classInfo.category === "strength"
-                      ? "bg-purple-100 text-purple-800"
-                      : "bg-gray-100 text-gray-800"
+                    classInfo.category === 'cardio'
+                      ? 'bg-red-100 text-red-800'
+                      : classInfo.category === 'yoga'
+                        ? 'bg-blue-100 text-blue-800'
+                        : classInfo.category === 'hiit'
+                          ? 'bg-orange-100 text-orange-800'
+                          : classInfo.category === 'strength'
+                            ? 'bg-purple-100 text-purple-800'
+                            : 'bg-gray-100 text-gray-800'
                   }`}
                 >
                   {classInfo.category.charAt(0).toUpperCase() + classInfo.category.slice(1)}
                 </span>
                 <span
                   className={`inline-block px-3 py-1 text-xs font-semibold rounded-full ${
-                    classInfo.difficulty === "beginner"
-                      ? "bg-green-100 text-green-800"
-                      : classInfo.difficulty === "intermediate"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-red-100 text-red-800"
+                    classInfo.difficulty === 'beginner'
+                      ? 'bg-green-100 text-green-800'
+                      : classInfo.difficulty === 'intermediate'
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : 'bg-red-100 text-red-800'
                   }`}
                 >
-                  {classInfo.difficulty === "beginner"
-                    ? "Người mới"
-                    : classInfo.difficulty === "intermediate"
-                    ? "Trung cấp"
-                    : "Nâng cao"}
+                  {classInfo.difficulty === 'beginner'
+                    ? 'Người mới'
+                    : classInfo.difficulty === 'intermediate'
+                      ? 'Trung cấp'
+                      : 'Nâng cao'}
                 </span>
               </div>
 
@@ -235,7 +237,7 @@ const ClassDetail = () => {
                   {[...Array(5)].map((_, i) => (
                     <StarIcon
                       key={i}
-                      className={`h-5 w-5 ${i < Math.floor(classInfo.rating) ? "text-yellow-400" : "text-gray-300"}`}
+                      className={`h-5 w-5 ${i < Math.floor(classInfo.rating) ? 'text-yellow-400' : 'text-gray-300'}`}
                     />
                   ))}
                 </div>
@@ -260,11 +262,11 @@ const ClassDetail = () => {
                 <div className="flex items-center">
                   <ChartBarIcon className="h-5 w-5 text-gray-400 mr-2" />
                   <span>
-                    {classInfo.difficulty === "beginner"
-                      ? "Dễ"
-                      : classInfo.difficulty === "intermediate"
-                      ? "Trung bình"
-                      : "Khó"}
+                    {classInfo.difficulty === 'beginner'
+                      ? 'Dễ'
+                      : classInfo.difficulty === 'intermediate'
+                        ? 'Trung bình'
+                        : 'Khó'}
                   </span>
                 </div>
               </div>
@@ -282,7 +284,9 @@ const ClassDetail = () => {
                     <div className="flex items-center">
                       <div className="flex items-center">
                         <StarIcon className="h-4 w-4 text-yellow-400" />
-                        <span className="text-sm text-gray-600 ml-1">{classInfo.instructor.rating}</span>
+                        <span className="text-sm text-gray-600 ml-1">
+                          {classInfo.instructor.rating}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -297,8 +301,8 @@ const ClassDetail = () => {
                       key={index}
                       className={`px-4 py-2 rounded-md border ${
                         selectedTime === `${time.day}-${time.time}`
-                          ? "bg-primary text-white border-primary"
-                          : "border-gray-300 hover:bg-gray-50"
+                          ? 'bg-primary text-white border-primary'
+                          : 'border-gray-300 hover:bg-gray-50'
                       }`}
                       onClick={() => setSelectedTime(`${time.day}-${time.time}`)}
                     >
@@ -310,7 +314,7 @@ const ClassDetail = () => {
               </div>
 
               <button
-                className={`w-full btn ${selectedTime ? "btn-primary" : "btn-outline opacity-50 cursor-not-allowed"}`}
+                className={`w-full btn ${selectedTime ? 'btn-primary' : 'btn-outline opacity-50 cursor-not-allowed'}`}
                 disabled={!selectedTime}
                 onClick={handleBooking}
               >
@@ -361,7 +365,9 @@ const ClassDetail = () => {
             <div className="bg-white rounded-lg shadow-md p-6">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-xl font-bold">Đánh giá từ học viên</h2>
-                <button className="text-primary hover:text-primary/80 text-sm font-medium">Xem tất cả</button>
+                <button className="text-primary hover:text-primary/80 text-sm font-medium">
+                  Xem tất cả
+                </button>
               </div>
 
               {/* Sample reviews */}
@@ -378,7 +384,10 @@ const ClassDetail = () => {
                       <div className="flex items-center">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} className={`h-4 w-4 ${i < 5 ? "text-yellow-400" : "text-gray-300"}`} />
+                            <StarIcon
+                              key={i}
+                              className={`h-4 w-4 ${i < 5 ? 'text-yellow-400' : 'text-gray-300'}`}
+                            />
                           ))}
                         </div>
                         <span className="text-xs text-gray-500 ml-2">2 tuần trước</span>
@@ -386,8 +395,9 @@ const ClassDetail = () => {
                     </div>
                   </div>
                   <p className="text-gray-700">
-                    Lớp học rất năng động và hiệu quả. Giáo viên rất nhiệt tình và luôn hỗ trợ khi tôi gặp khó khăn với
-                    một số động tác. Tôi đã đạt được mục tiêu cải thiện sức bền của mình sau 1 tháng tham gia.
+                    Lớp học rất năng động và hiệu quả. Giáo viên rất nhiệt tình và luôn hỗ trợ khi
+                    tôi gặp khó khăn với một số động tác. Tôi đã đạt được mục tiêu cải thiện sức bền
+                    của mình sau 1 tháng tham gia.
                   </p>
                 </div>
 
@@ -403,7 +413,10 @@ const ClassDetail = () => {
                       <div className="flex items-center">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} className={`h-4 w-4 ${i < 4 ? "text-yellow-400" : "text-gray-300"}`} />
+                            <StarIcon
+                              key={i}
+                              className={`h-4 w-4 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`}
+                            />
                           ))}
                         </div>
                         <span className="text-xs text-gray-500 ml-2">1 tháng trước</span>
@@ -411,8 +424,9 @@ const ClassDetail = () => {
                     </div>
                   </div>
                   <p className="text-gray-700">
-                    Tôi rất thích buổi học này. Cường độ vừa phải và phù hợp với người mới như tôi. Tuy nhiên, đôi khi
-                    lớp hơi đông nên khó để giáo viên có thể hỗ trợ tất cả mọi người.
+                    Tôi rất thích buổi học này. Cường độ vừa phải và phù hợp với người mới như tôi.
+                    Tuy nhiên, đôi khi lớp hơi đông nên khó để giáo viên có thể hỗ trợ tất cả mọi
+                    người.
                   </p>
                 </div>
 
@@ -428,7 +442,10 @@ const ClassDetail = () => {
                       <div className="flex items-center">
                         <div className="flex">
                           {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} className={`h-4 w-4 ${i < 5 ? "text-yellow-400" : "text-gray-300"}`} />
+                            <StarIcon
+                              key={i}
+                              className={`h-4 w-4 ${i < 5 ? 'text-yellow-400' : 'text-gray-300'}`}
+                            />
                           ))}
                         </div>
                         <span className="text-xs text-gray-500 ml-2">2 tháng trước</span>
@@ -436,8 +453,9 @@ const ClassDetail = () => {
                     </div>
                   </div>
                   <p className="text-gray-700">
-                    Một trong những lớp học tốt nhất mà tôi từng tham gia! Giáo viên rất chuyên nghiệp và nhiệt tình.
-                    Các bài tập được thiết kế rất khoa học và hiệu quả. Tôi đã giới thiệu cho nhiều bạn bè của mình.
+                    Một trong những lớp học tốt nhất mà tôi từng tham gia! Giáo viên rất chuyên
+                    nghiệp và nhiệt tình. Các bài tập được thiết kế rất khoa học và hiệu quả. Tôi đã
+                    giới thiệu cho nhiều bạn bè của mình.
                   </p>
                 </div>
               </div>
@@ -451,7 +469,10 @@ const ClassDetail = () => {
               <h2 className="text-xl font-bold mb-6">Lịch học trong tuần</h2>
               <div className="space-y-4">
                 {classInfo.schedule.map((time: any, index: number) => (
-                  <div key={index} className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50">
+                  <div
+                    key={index}
+                    className="flex justify-between items-center p-3 border rounded-lg hover:bg-gray-50"
+                  >
                     <div>
                       <p className="font-medium">{time.day}</p>
                       <p className="text-sm text-gray-500">{time.time}</p>
@@ -459,12 +480,12 @@ const ClassDetail = () => {
                     <button
                       className={`px-3 py-1 rounded text-sm ${
                         selectedTime === `${time.day}-${time.time}`
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                       }`}
                       onClick={() => setSelectedTime(`${time.day}-${time.time}`)}
                     >
-                      {selectedTime === `${time.day}-${time.time}` ? "Đã chọn" : "Chọn"}
+                      {selectedTime === `${time.day}-${time.time}` ? 'Đã chọn' : 'Chọn'}
                     </button>
                   </div>
                 ))}

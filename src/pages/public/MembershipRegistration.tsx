@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   CheckIcon,
   ChevronRightIcon,
@@ -8,65 +8,65 @@ import {
   ClipboardDocumentCheckIcon,
   CalendarIcon,
   ExclamationCircleIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 // Mock membership package data
 const packages = [
   {
-    id: "monthly",
-    name: "Monthly",
-    description: "Perfect for getting started",
+    id: 'monthly',
+    name: 'Monthly',
+    description: 'Perfect for getting started',
     price: 49,
-    duration: "1 month",
+    duration: '1 month',
     features: [
-      "Unlimited gym access",
-      "2 free personal training sessions",
-      "Access to group classes",
-      "Locker access",
-      "Fitness assessment",
+      'Unlimited gym access',
+      '2 free personal training sessions',
+      'Access to group classes',
+      'Locker access',
+      'Fitness assessment',
     ],
     popular: false,
   },
   {
-    id: "quarterly",
-    name: "Quarterly",
-    description: "Our most popular package",
+    id: 'quarterly',
+    name: 'Quarterly',
+    description: 'Our most popular package',
     price: 129,
-    duration: "3 months",
+    duration: '3 months',
     features: [
-      "Unlimited gym access",
-      "6 free personal training sessions",
-      "Access to all group classes",
-      "Locker access",
-      "Fitness assessment",
-      "Nutrition consultation",
-      "Access to premium equipment",
+      'Unlimited gym access',
+      '6 free personal training sessions',
+      'Access to all group classes',
+      'Locker access',
+      'Fitness assessment',
+      'Nutrition consultation',
+      'Access to premium equipment',
     ],
     popular: true,
   },
   {
-    id: "annual",
-    name: "Annual",
-    description: "Best value for committed members",
+    id: 'annual',
+    name: 'Annual',
+    description: 'Best value for committed members',
     price: 449,
-    duration: "12 months",
+    duration: '12 months',
     features: [
-      "Unlimited gym access",
-      "18 free personal training sessions",
-      "Access to all group classes",
-      "Premium locker access",
-      "Quarterly fitness assessments",
-      "Nutrition consultation",
-      "Access to premium equipment",
-      "Free guest passes (4 per year)",
-      "Exclusive member events",
+      'Unlimited gym access',
+      '18 free personal training sessions',
+      'Access to all group classes',
+      'Premium locker access',
+      'Quarterly fitness assessments',
+      'Nutrition consultation',
+      'Access to premium equipment',
+      'Free guest passes (4 per year)',
+      'Exclusive member events',
     ],
     popular: false,
   },
 ];
 
 // Steps in the registration process
-type Step = "package" | "personal" | "healthInfo" | "payment" | "confirmation";
+type Step = 'package' | 'personal' | 'healthInfo' | 'payment' | 'confirmation';
 
 interface HealthInfo {
   height: string;
@@ -100,41 +100,41 @@ interface PaymentInfo {
 
 const MembershipRegistration = () => {
   // Current step of the registration process
-  const [currentStep, setCurrentStep] = useState<Step>("package");
+  const [currentStep, setCurrentStep] = useState<Step>('package');
 
   // Selected package
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
   // Personal Information
   const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    dateOfBirth: "",
-    gender: "",
-    address: "",
-    city: "",
-    emergencyContact: "",
-    emergencyPhone: "",
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    dateOfBirth: '',
+    gender: '',
+    address: '',
+    city: '',
+    emergencyContact: '',
+    emergencyPhone: '',
   });
 
   // Health Information
   const [healthInfo, setHealthInfo] = useState<HealthInfo>({
-    height: "",
-    weight: "",
-    medicalConditions: "",
+    height: '',
+    weight: '',
+    medicalConditions: '',
     fitnessGoals: [],
-    activityLevel: "beginner",
+    activityLevel: 'beginner',
   });
 
   // Payment Information
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
-    cardName: "",
-    cardNumber: "",
-    expiryDate: "",
-    cvv: "",
-    billingAddress: "",
+    cardName: '',
+    cardNumber: '',
+    expiryDate: '',
+    cvv: '',
+    billingAddress: '',
     sameAsPersonal: true,
   });
 
@@ -171,10 +171,16 @@ const MembershipRegistration = () => {
   };
 
   // Update health information
-  const handleHealthInfoChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleHealthInfoChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
-    if (name === "fitnessGoals" && e.target instanceof HTMLInputElement && e.target.type === "checkbox") {
+    if (
+      name === 'fitnessGoals' &&
+      e.target instanceof HTMLInputElement &&
+      e.target.type === 'checkbox'
+    ) {
       const isChecked = e.target.checked;
       const goal = e.target.value;
 
@@ -197,10 +203,12 @@ const MembershipRegistration = () => {
   };
 
   // Update payment information
-  const handlePaymentInfoChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handlePaymentInfoChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type, checked } = e.target;
 
-    if (type === "checkbox" && name === "sameAsPersonal") {
+    if (type === 'checkbox' && name === 'sameAsPersonal') {
       setPaymentInfo({
         ...paymentInfo,
         sameAsPersonal: checked,
@@ -223,31 +231,32 @@ const MembershipRegistration = () => {
     const newErrors: Record<string, string> = {};
 
     // Validate based on current step
-    if (currentStep === "package") {
+    if (currentStep === 'package') {
       if (!selectedPackage) {
-        newErrors.package = "Please select a membership package";
+        newErrors.package = 'Please select a membership package';
       }
-    } else if (currentStep === "personal") {
-      if (!personalInfo.firstName) newErrors.firstName = "First name is required";
-      if (!personalInfo.lastName) newErrors.lastName = "Last name is required";
-      if (!personalInfo.email) newErrors.email = "Email is required";
-      else if (!/\S+@\S+\.\S+/.test(personalInfo.email)) newErrors.email = "Email is invalid";
-      if (!personalInfo.phone) newErrors.phone = "Phone number is required";
-      if (!personalInfo.dateOfBirth) newErrors.dateOfBirth = "Date of birth is required";
-    } else if (currentStep === "healthInfo") {
+    } else if (currentStep === 'personal') {
+      if (!personalInfo.firstName) newErrors.firstName = 'First name is required';
+      if (!personalInfo.lastName) newErrors.lastName = 'Last name is required';
+      if (!personalInfo.email) newErrors.email = 'Email is required';
+      else if (!/\S+@\S+\.\S+/.test(personalInfo.email)) newErrors.email = 'Email is invalid';
+      if (!personalInfo.phone) newErrors.phone = 'Phone number is required';
+      if (!personalInfo.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
+    } else if (currentStep === 'healthInfo') {
       // Basic validation for health info
-      if (!healthInfo.height) newErrors.height = "Height is required";
-      if (!healthInfo.weight) newErrors.weight = "Weight is required";
-      if (healthInfo.fitnessGoals.length === 0) newErrors.fitnessGoals = "Please select at least one fitness goal";
-    } else if (currentStep === "payment") {
-      if (!paymentInfo.cardName) newErrors.cardName = "Name on card is required";
-      if (!paymentInfo.cardNumber) newErrors.cardNumber = "Card number is required";
-      else if (!/^\d{16}$/.test(paymentInfo.cardNumber.replace(/\s/g, "")))
-        newErrors.cardNumber = "Card number should be 16 digits";
-      if (!paymentInfo.expiryDate) newErrors.expiryDate = "Expiry date is required";
-      if (!paymentInfo.cvv) newErrors.cvv = "CVV is required";
-      else if (!/^\d{3,4}$/.test(paymentInfo.cvv)) newErrors.cvv = "CVV should be 3 or 4 digits";
-      if (!paymentInfo.billingAddress) newErrors.billingAddress = "Billing address is required";
+      if (!healthInfo.height) newErrors.height = 'Height is required';
+      if (!healthInfo.weight) newErrors.weight = 'Weight is required';
+      if (healthInfo.fitnessGoals.length === 0)
+        newErrors.fitnessGoals = 'Please select at least one fitness goal';
+    } else if (currentStep === 'payment') {
+      if (!paymentInfo.cardName) newErrors.cardName = 'Name on card is required';
+      if (!paymentInfo.cardNumber) newErrors.cardNumber = 'Card number is required';
+      else if (!/^\d{16}$/.test(paymentInfo.cardNumber.replace(/\s/g, '')))
+        newErrors.cardNumber = 'Card number should be 16 digits';
+      if (!paymentInfo.expiryDate) newErrors.expiryDate = 'Expiry date is required';
+      if (!paymentInfo.cvv) newErrors.cvv = 'CVV is required';
+      else if (!/^\d{3,4}$/.test(paymentInfo.cvv)) newErrors.cvv = 'CVV should be 3 or 4 digits';
+      if (!paymentInfo.billingAddress) newErrors.billingAddress = 'Billing address is required';
     }
 
     // If there are errors, show them
@@ -257,24 +266,24 @@ const MembershipRegistration = () => {
     }
 
     // Move to next step if validation passes
-    if (currentStep === "package") setCurrentStep("personal");
-    else if (currentStep === "personal") setCurrentStep("healthInfo");
-    else if (currentStep === "healthInfo") setCurrentStep("payment");
-    else if (currentStep === "payment") setCurrentStep("confirmation");
+    if (currentStep === 'package') setCurrentStep('personal');
+    else if (currentStep === 'personal') setCurrentStep('healthInfo');
+    else if (currentStep === 'healthInfo') setCurrentStep('payment');
+    else if (currentStep === 'payment') setCurrentStep('confirmation');
   };
 
   // Go back to previous step
   const goToPreviousStep = () => {
-    if (currentStep === "personal") setCurrentStep("package");
-    else if (currentStep === "healthInfo") setCurrentStep("personal");
-    else if (currentStep === "payment") setCurrentStep("healthInfo");
-    else if (currentStep === "confirmation") setCurrentStep("payment");
+    if (currentStep === 'personal') setCurrentStep('package');
+    else if (currentStep === 'healthInfo') setCurrentStep('personal');
+    else if (currentStep === 'payment') setCurrentStep('healthInfo');
+    else if (currentStep === 'confirmation') setCurrentStep('payment');
   };
 
   // Submit registration (would connect to API in real application)
   const submitRegistration = () => {
     // In a real app, this would send data to the server
-    console.log("Registration submitted:", {
+    console.log('Registration submitted:', {
       package: selectedPackage,
       personalInfo,
       healthInfo,
@@ -282,7 +291,7 @@ const MembershipRegistration = () => {
     });
 
     // Show confirmation step
-    setCurrentStep("confirmation");
+    setCurrentStep('confirmation');
   };
 
   // Get the selected package details
@@ -308,11 +317,21 @@ const MembershipRegistration = () => {
               ></div>
             </div>
             <div className="flex justify-between text-xs text-gray-600">
-              <div className={currentStep === "package" ? "text-primary font-bold" : ""}>Select Package</div>
-              <div className={currentStep === "personal" ? "text-primary font-bold" : ""}>Personal Info</div>
-              <div className={currentStep === "healthInfo" ? "text-primary font-bold" : ""}>Health Info</div>
-              <div className={currentStep === "payment" ? "text-primary font-bold" : ""}>Payment</div>
-              <div className={currentStep === "confirmation" ? "text-primary font-bold" : ""}>Confirmation</div>
+              <div className={currentStep === 'package' ? 'text-primary font-bold' : ''}>
+                Select Package
+              </div>
+              <div className={currentStep === 'personal' ? 'text-primary font-bold' : ''}>
+                Personal Info
+              </div>
+              <div className={currentStep === 'healthInfo' ? 'text-primary font-bold' : ''}>
+                Health Info
+              </div>
+              <div className={currentStep === 'payment' ? 'text-primary font-bold' : ''}>
+                Payment
+              </div>
+              <div className={currentStep === 'confirmation' ? 'text-primary font-bold' : ''}>
+                Confirmation
+              </div>
             </div>
           </div>
         </div>
@@ -320,9 +339,11 @@ const MembershipRegistration = () => {
         {/* Main content area */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8">
           {/* Step 1: Package Selection */}
-          {currentStep === "package" && (
+          {currentStep === 'package' && (
             <div>
-              <h2 className="text-xl font-bold mb-6 text-gray-900">Choose Your Membership Package</h2>
+              <h2 className="text-xl font-bold mb-6 text-gray-900">
+                Choose Your Membership Package
+              </h2>
 
               {errors.package && (
                 <div className="mb-4 p-2 bg-red-50 text-red-500 rounded flex items-center">
@@ -336,16 +357,18 @@ const MembershipRegistration = () => {
                   <div
                     key={pkg.id}
                     className={`border rounded-lg overflow-hidden transition-all ${
-                      pkg.popular ? "transform scale-105 shadow-lg border-primary" : "shadow"
+                      pkg.popular ? 'transform scale-105 shadow-lg border-primary' : 'shadow'
                     } ${
                       selectedPackage === pkg.id
-                        ? "ring-2 ring-primary border-primary"
-                        : "hover:shadow-md cursor-pointer"
+                        ? 'ring-2 ring-primary border-primary'
+                        : 'hover:shadow-md cursor-pointer'
                     }`}
                     onClick={() => selectPackage(pkg.id)}
                   >
                     {pkg.popular && (
-                      <div className="bg-primary text-white text-center py-1 text-sm font-medium">Most Popular</div>
+                      <div className="bg-primary text-white text-center py-1 text-sm font-medium">
+                        Most Popular
+                      </div>
                     )}
                     <div className="p-5">
                       <div className="flex justify-between items-start">
@@ -386,39 +409,49 @@ const MembershipRegistration = () => {
           )}
 
           {/* Step 2: Personal Information */}
-          {currentStep === "personal" && (
+          {currentStep === 'personal' && (
             <div>
               <h2 className="text-xl font-bold mb-6 text-gray-900">Personal Information</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     First Name *
                   </label>
                   <input
                     type="text"
                     id="firstName"
                     name="firstName"
-                    className={`input ${errors.firstName ? "border-red-500" : ""}`}
+                    className={`input ${errors.firstName ? 'border-red-500' : ''}`}
                     value={personalInfo.firstName}
                     onChange={handlePersonalInfoChange}
                   />
-                  {errors.firstName && <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>}
+                  {errors.firstName && (
+                    <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Last Name *
                   </label>
                   <input
                     type="text"
                     id="lastName"
                     name="lastName"
-                    className={`input ${errors.lastName ? "border-red-500" : ""}`}
+                    className={`input ${errors.lastName ? 'border-red-500' : ''}`}
                     value={personalInfo.lastName}
                     onChange={handlePersonalInfoChange}
                   />
-                  {errors.lastName && <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>}
+                  {errors.lastName && (
+                    <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>
+                  )}
                 </div>
 
                 <div>
@@ -429,7 +462,7 @@ const MembershipRegistration = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className={`input ${errors.email ? "border-red-500" : ""}`}
+                    className={`input ${errors.email ? 'border-red-500' : ''}`}
                     value={personalInfo.email}
                     onChange={handlePersonalInfoChange}
                   />
@@ -444,7 +477,7 @@ const MembershipRegistration = () => {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className={`input ${errors.phone ? "border-red-500" : ""}`}
+                    className={`input ${errors.phone ? 'border-red-500' : ''}`}
                     value={personalInfo.phone}
                     onChange={handlePersonalInfoChange}
                   />
@@ -452,18 +485,23 @@ const MembershipRegistration = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="dateOfBirth"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Date of Birth *
                   </label>
                   <input
                     type="date"
                     id="dateOfBirth"
                     name="dateOfBirth"
-                    className={`input ${errors.dateOfBirth ? "border-red-500" : ""}`}
+                    className={`input ${errors.dateOfBirth ? 'border-red-500' : ''}`}
                     value={personalInfo.dateOfBirth}
                     onChange={handlePersonalInfoChange}
                   />
-                  {errors.dateOfBirth && <p className="mt-1 text-sm text-red-500">{errors.dateOfBirth}</p>}
+                  {errors.dateOfBirth && (
+                    <p className="mt-1 text-sm text-red-500">{errors.dateOfBirth}</p>
+                  )}
                 </div>
 
                 <div>
@@ -514,7 +552,10 @@ const MembershipRegistration = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="emergencyContact" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="emergencyContact"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Emergency Contact Name
                   </label>
                   <input
@@ -528,7 +569,10 @@ const MembershipRegistration = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="emergencyPhone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Emergency Contact Phone
                   </label>
                   <input
@@ -545,9 +589,11 @@ const MembershipRegistration = () => {
           )}
 
           {/* Step 3: Health Information */}
-          {currentStep === "healthInfo" && (
+          {currentStep === 'healthInfo' && (
             <div>
-              <h2 className="text-xl font-bold mb-6 text-gray-900">Health and Fitness Information</h2>
+              <h2 className="text-xl font-bold mb-6 text-gray-900">
+                Health and Fitness Information
+              </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
@@ -558,7 +604,7 @@ const MembershipRegistration = () => {
                     type="text"
                     id="height"
                     name="height"
-                    className={`input ${errors.height ? "border-red-500" : ""}`}
+                    className={`input ${errors.height ? 'border-red-500' : ''}`}
                     value={healthInfo.height}
                     onChange={handleHealthInfoChange}
                   />
@@ -573,7 +619,7 @@ const MembershipRegistration = () => {
                     type="text"
                     id="weight"
                     name="weight"
-                    className={`input ${errors.weight ? "border-red-500" : ""}`}
+                    className={`input ${errors.weight ? 'border-red-500' : ''}`}
                     value={healthInfo.weight}
                     onChange={handleHealthInfoChange}
                   />
@@ -582,7 +628,10 @@ const MembershipRegistration = () => {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="activityLevel" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="activityLevel"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Current Activity Level *
                 </label>
                 <select
@@ -602,19 +651,22 @@ const MembershipRegistration = () => {
 
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Fitness Goals * {errors.fitnessGoals && <span className="text-red-500">({errors.fitnessGoals})</span>}
+                  Fitness Goals *{' '}
+                  {errors.fitnessGoals && (
+                    <span className="text-red-500">({errors.fitnessGoals})</span>
+                  )}
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {[
-                    "Weight Loss",
-                    "Muscle Gain",
-                    "Improve Flexibility",
-                    "Cardio Fitness",
-                    "General Health",
-                    "Strength Training",
-                    "Sports Performance",
-                    "Stress Reduction",
-                    "Recovery",
+                    'Weight Loss',
+                    'Muscle Gain',
+                    'Improve Flexibility',
+                    'Cardio Fitness',
+                    'General Health',
+                    'Strength Training',
+                    'Sports Performance',
+                    'Stress Reduction',
+                    'Recovery',
                   ].map((goal) => (
                     <label key={goal} className="flex items-center">
                       <input
@@ -632,7 +684,10 @@ const MembershipRegistration = () => {
               </div>
 
               <div>
-                <label htmlFor="medicalConditions" className="block text-sm font-medium text-gray-700 mb-1">
+                <label
+                  htmlFor="medicalConditions"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   Medical Conditions or Allergies (if any)
                 </label>
                 <textarea
@@ -649,12 +704,14 @@ const MembershipRegistration = () => {
           )}
 
           {/* Step 4: Payment Information */}
-          {currentStep === "payment" && (
+          {currentStep === 'payment' && (
             <div>
               <h2 className="text-xl font-bold mb-6 text-gray-900">Payment Information</h2>
 
               <div className="bg-gray-50 p-4 rounded-lg mb-6">
-                <h3 className="font-semibold mb-2">Selected Package: {getSelectedPackageDetails()?.name}</h3>
+                <h3 className="font-semibold mb-2">
+                  Selected Package: {getSelectedPackageDetails()?.name}
+                </h3>
                 <div className="flex justify-between">
                   <span>Total Amount:</span>
                   <span className="font-bold">${getSelectedPackageDetails()?.price}.00</span>
@@ -663,22 +720,30 @@ const MembershipRegistration = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="md:col-span-2">
-                  <label htmlFor="cardName" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="cardName"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Name on Card *
                   </label>
                   <input
                     type="text"
                     id="cardName"
                     name="cardName"
-                    className={`input ${errors.cardName ? "border-red-500" : ""}`}
+                    className={`input ${errors.cardName ? 'border-red-500' : ''}`}
                     value={paymentInfo.cardName}
                     onChange={handlePaymentInfoChange}
                   />
-                  {errors.cardName && <p className="mt-1 text-sm text-red-500">{errors.cardName}</p>}
+                  {errors.cardName && (
+                    <p className="mt-1 text-sm text-red-500">{errors.cardName}</p>
+                  )}
                 </div>
 
                 <div className="md:col-span-2">
-                  <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="cardNumber"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Card Number *
                   </label>
                   <div className="relative">
@@ -686,30 +751,37 @@ const MembershipRegistration = () => {
                       type="text"
                       id="cardNumber"
                       name="cardNumber"
-                      className={`input pl-10 ${errors.cardNumber ? "border-red-500" : ""}`}
+                      className={`input pl-10 ${errors.cardNumber ? 'border-red-500' : ''}`}
                       value={paymentInfo.cardNumber}
                       onChange={handlePaymentInfoChange}
                       placeholder="XXXX XXXX XXXX XXXX"
                     />
                     <CreditCardIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                   </div>
-                  {errors.cardNumber && <p className="mt-1 text-sm text-red-500">{errors.cardNumber}</p>}
+                  {errors.cardNumber && (
+                    <p className="mt-1 text-sm text-red-500">{errors.cardNumber}</p>
+                  )}
                 </div>
 
                 <div>
-                  <label htmlFor="expiryDate" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="expiryDate"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Expiry Date *
                   </label>
                   <input
                     type="text"
                     id="expiryDate"
                     name="expiryDate"
-                    className={`input ${errors.expiryDate ? "border-red-500" : ""}`}
+                    className={`input ${errors.expiryDate ? 'border-red-500' : ''}`}
                     value={paymentInfo.expiryDate}
                     onChange={handlePaymentInfoChange}
                     placeholder="MM/YY"
                   />
-                  {errors.expiryDate && <p className="mt-1 text-sm text-red-500">{errors.expiryDate}</p>}
+                  {errors.expiryDate && (
+                    <p className="mt-1 text-sm text-red-500">{errors.expiryDate}</p>
+                  )}
                 </div>
 
                 <div>
@@ -720,7 +792,7 @@ const MembershipRegistration = () => {
                     type="text"
                     id="cvv"
                     name="cvv"
-                    className={`input ${errors.cvv ? "border-red-500" : ""}`}
+                    className={`input ${errors.cvv ? 'border-red-500' : ''}`}
                     value={paymentInfo.cvv}
                     onChange={handlePaymentInfoChange}
                     placeholder="XXX"
@@ -737,23 +809,30 @@ const MembershipRegistration = () => {
                       onChange={handlePaymentInfoChange}
                       className="h-4 w-4 text-primary border-gray-300 rounded"
                     />
-                    <span className="ml-2 text-sm text-gray-700">Billing address same as personal address</span>
+                    <span className="ml-2 text-sm text-gray-700">
+                      Billing address same as personal address
+                    </span>
                   </label>
 
                   {!paymentInfo.sameAsPersonal && (
                     <>
-                      <label htmlFor="billingAddress" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label
+                        htmlFor="billingAddress"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
                         Billing Address *
                       </label>
                       <textarea
                         id="billingAddress"
                         name="billingAddress"
                         rows={3}
-                        className={`input ${errors.billingAddress ? "border-red-500" : ""}`}
+                        className={`input ${errors.billingAddress ? 'border-red-500' : ''}`}
                         value={paymentInfo.billingAddress}
                         onChange={handlePaymentInfoChange}
                       ></textarea>
-                      {errors.billingAddress && <p className="mt-1 text-sm text-red-500">{errors.billingAddress}</p>}
+                      {errors.billingAddress && (
+                        <p className="mt-1 text-sm text-red-500">{errors.billingAddress}</p>
+                      )}
                     </>
                   )}
                 </div>
@@ -762,7 +841,7 @@ const MembershipRegistration = () => {
           )}
 
           {/* Step 5: Confirmation */}
-          {currentStep === "confirmation" && (
+          {currentStep === 'confirmation' && (
             <div className="text-center py-8">
               <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
                 <CheckIcon className="h-6 w-6 text-green-600" />
@@ -797,8 +876,8 @@ const MembershipRegistration = () => {
               </div>
 
               <p className="text-gray-600 mb-8">
-                We've sent a confirmation email to <span className="font-semibold">{personalInfo.email}</span> with all
-                the details.
+                We've sent a confirmation email to{' '}
+                <span className="font-semibold">{personalInfo.email}</span> with all the details.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -816,22 +895,22 @@ const MembershipRegistration = () => {
         </div>
 
         {/* Navigation buttons */}
-        {currentStep !== "confirmation" && (
+        {currentStep !== 'confirmation' && (
           <div className="flex justify-between">
             <button
               type="button"
               className="btn btn-outline flex items-center"
               onClick={goToPreviousStep}
-              disabled={currentStep === "package"}
+              disabled={currentStep === 'package'}
             >
               Back
             </button>
             <button
               type="button"
               className="btn btn-primary flex items-center"
-              onClick={currentStep === "payment" ? submitRegistration : goToNextStep}
+              onClick={currentStep === 'payment' ? submitRegistration : goToNextStep}
             >
-              {currentStep === "payment" ? "Complete Registration" : "Continue"}
+              {currentStep === 'payment' ? 'Complete Registration' : 'Continue'}
               <ChevronRightIcon className="h-5 w-5 ml-1" />
             </button>
           </div>

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { QrCodeIcon, CheckIcon, XMarkIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { useState, useEffect } from 'react';
+import { QrCodeIcon, CheckIcon, XMarkIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const QRCheckIn = () => {
   const [scanning, setScanning] = useState(false);
-  const [scanResult, setScanResult] = useState<null | "success" | "error">(null);
+  const [scanResult, setScanResult] = useState<null | 'success' | 'error'>(null);
   const [memberInfo, setMemberInfo] = useState<null | {
     id: number;
     name: string;
@@ -16,13 +16,13 @@ const QRCheckIn = () => {
       id: number;
       name: string;
       time: string;
-      direction: "in" | "out";
+      direction: 'in' | 'out';
     }>
   >([
-    { id: 1, name: "John Smith", time: "10:15 AM", direction: "in" },
-    { id: 2, name: "Sarah Johnson", time: "10:05 AM", direction: "in" },
-    { id: 3, name: "Mike Williams", time: "9:45 AM", direction: "out" },
-    { id: 4, name: "Linda Wilson", time: "9:30 AM", direction: "in" },
+    { id: 1, name: 'John Smith', time: '10:15 AM', direction: 'in' },
+    { id: 2, name: 'Sarah Johnson', time: '10:05 AM', direction: 'in' },
+    { id: 3, name: 'Mike Williams', time: '9:45 AM', direction: 'out' },
+    { id: 4, name: 'Linda Wilson', time: '9:30 AM', direction: 'in' },
   ]);
 
   // Simulate QR scanning
@@ -34,30 +34,30 @@ const QRCheckIn = () => {
     // Simulate a scan after 2 seconds (in a real app, this would be using a QR scanner library)
     setTimeout(() => {
       const success = Math.random() > 0.2; // 80% success rate for demo
-      setScanResult(success ? "success" : "error");
+      setScanResult(success ? 'success' : 'error');
 
       if (success) {
         setMemberInfo({
           id: 5,
-          name: "David Brown",
-          status: "Active",
-          package: "Monthly",
-          expiration: "15/08/2023",
+          name: 'David Brown',
+          status: 'Active',
+          package: 'Monthly',
+          expiration: '15/08/2023',
         });
 
         // Add to recent check-ins
-        const direction = Math.random() > 0.5 ? "in" : "out";
+        const direction = Math.random() > 0.5 ? 'in' : 'out';
         const now = new Date();
-        const timeString = now.toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
+        const timeString = now.toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
           hour12: true,
         });
 
         setRecentCheckins([
           {
             id: Date.now(),
-            name: "David Brown",
+            name: 'David Brown',
             time: timeString,
             direction,
           },
@@ -89,7 +89,9 @@ const QRCheckIn = () => {
               {!scanning && !scanResult && (
                 <div className="p-10 border-2 border-dashed border-gray-300 rounded-lg mb-4">
                   <QrCodeIcon className="mx-auto h-24 w-24 text-gray-400" />
-                  <p className="mt-4 text-sm text-gray-500">Position the QR code in front of your camera</p>
+                  <p className="mt-4 text-sm text-gray-500">
+                    Position the QR code in front of your camera
+                  </p>
                 </div>
               )}
 
@@ -102,7 +104,7 @@ const QRCheckIn = () => {
                 </div>
               )}
 
-              {scanResult === "success" && (
+              {scanResult === 'success' && (
                 <div className="p-6 border-2 border-green-500 rounded-lg mb-4 bg-green-50">
                   <div className="flex justify-center">
                     <CheckIcon className="h-16 w-16 text-green-600" />
@@ -111,21 +113,23 @@ const QRCheckIn = () => {
                 </div>
               )}
 
-              {scanResult === "error" && (
+              {scanResult === 'error' && (
                 <div className="p-6 border-2 border-red-500 rounded-lg mb-4 bg-red-50">
                   <div className="flex justify-center">
                     <XMarkIcon className="h-16 w-16 text-red-600" />
                   </div>
-                  <p className="mt-2 text-lg font-medium text-red-800">Invalid or Expired QR Code</p>
+                  <p className="mt-2 text-lg font-medium text-red-800">
+                    Invalid or Expired QR Code
+                  </p>
                 </div>
               )}
 
               {!scanning && (
                 <button
-                  className={`btn ${scanResult ? "btn-outline" : "btn-primary"} mt-4`}
+                  className={`btn ${scanResult ? 'btn-outline' : 'btn-primary'} mt-4`}
                   onClick={scanResult ? resetScan : startScanning}
                 >
-                  {scanResult ? "Scan Another" : "Start Scanning"}
+                  {scanResult ? 'Scan Another' : 'Start Scanning'}
                 </button>
               )}
             </div>
@@ -142,7 +146,9 @@ const QRCheckIn = () => {
                   <dd className="text-sm text-gray-900">
                     <span
                       className={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full ${
-                        memberInfo.status === "Active" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                        memberInfo.status === 'Active'
+                          ? 'bg-green-100 text-green-800'
+                          : 'bg-red-100 text-red-800'
                       }`}
                     >
                       {memberInfo.status}
@@ -171,10 +177,10 @@ const QRCheckIn = () => {
                       <div className="flex-shrink-0">
                         <div
                           className={`h-10 w-10 rounded-full flex items-center justify-center ${
-                            checkin.direction === "in" ? "bg-green-100" : "bg-blue-100"
+                            checkin.direction === 'in' ? 'bg-green-100' : 'bg-blue-100'
                           }`}
                         >
-                          {checkin.direction === "in" ? (
+                          {checkin.direction === 'in' ? (
                             <CheckIcon className="h-6 w-6 text-green-600" />
                           ) : (
                             <ClockIcon className="h-6 w-6 text-blue-600" />
@@ -184,7 +190,8 @@ const QRCheckIn = () => {
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">{checkin.name}</p>
                         <p className="text-sm text-gray-500 truncate">
-                          {checkin.direction === "in" ? "Checked in" : "Checked out"} at {checkin.time}
+                          {checkin.direction === 'in' ? 'Checked in' : 'Checked out'} at{' '}
+                          {checkin.time}
                         </p>
                       </div>
                     </div>

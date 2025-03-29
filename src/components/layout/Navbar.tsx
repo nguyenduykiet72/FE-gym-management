@@ -1,16 +1,16 @@
-import { Fragment } from "react";
-import { Bars3Icon, BellIcon } from "@heroicons/react/24/outline";
-import { Menu, Transition } from "@headlessui/react";
+import { Fragment } from 'react';
+import { Bars3Icon, BellIcon } from '@heroicons/react/24/outline';
+import { Menu, Transition } from '@headlessui/react';
 
 interface NavbarProps {
   setSidebarOpen: (open: boolean) => void;
-  userRole: "admin" | "trainer" | "member" | null;
+  userRole: 'admin' | 'trainer' | 'member' | null;
   userName: string;
   onLogout?: () => void;
 }
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) => {
@@ -39,7 +39,10 @@ const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) =
             </div>
           </div>
           <div className="flex items-center">
-            <button type="button" className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+            <button
+              type="button"
+              className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none"
+            >
               <span className="sr-only">View notifications</span>
               <BellIcon className="h-6 w-6" aria-hidden="true" />
             </button>
@@ -51,7 +54,11 @@ const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) =
                   <span className="sr-only">Open user menu</span>
                   <div className="flex items-center">
                     <div className="h-8 w-8 rounded-full bg-gray-200 flex-shrink-0 mr-2">
-                      <img className="h-8 w-8 rounded-full" src="https://via.placeholder.com/32" alt="" />
+                      <img
+                        className="h-8 w-8 rounded-full"
+                        src="https://via.placeholder.com/32"
+                        alt=""
+                      />
                     </div>
                     <div className="hidden md:block">
                       <div className="text-sm font-medium text-gray-700">{userName}</div>
@@ -74,7 +81,10 @@ const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) =
                     {({ active }) => (
                       <a
                         href="#"
-                        className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
+                        className={classNames(
+                          active ? 'bg-gray-100' : '',
+                          'block px-4 py-2 text-sm text-gray-700'
+                        )}
                       >
                         Your Profile
                       </a>
@@ -84,7 +94,10 @@ const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) =
                     {({ active }) => (
                       <a
                         href="#"
-                        className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
+                        className={classNames(
+                          active ? 'bg-gray-100' : '',
+                          'block px-4 py-2 text-sm text-gray-700'
+                        )}
                       >
                         Settings
                       </a>
@@ -95,8 +108,8 @@ const Navbar = ({ setSidebarOpen, userRole, userName, onLogout }: NavbarProps) =
                       <button
                         onClick={handleLogout}
                         className={classNames(
-                          active ? "bg-gray-100" : "",
-                          "block w-full text-left px-4 py-2 text-sm text-gray-700"
+                          active ? 'bg-gray-100' : '',
+                          'block w-full text-left px-4 py-2 text-sm text-gray-700'
                         )}
                       >
                         Sign out

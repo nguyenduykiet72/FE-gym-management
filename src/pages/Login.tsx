@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 interface LoginProps {
-  onLogin: (role: "admin" | "trainer" | "member") => void;
+  onLogin: (role: 'admin' | 'trainer' | 'member') => void;
 }
 
 const Login = ({ onLogin }: LoginProps) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState<"admin" | "trainer" | "member">("member");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState<'admin' | 'trainer' | 'member'>('member');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
-      setError("Please enter both email and password");
+      setError('Please enter both email and password');
       return;
     }
 
@@ -44,7 +44,9 @@ const Login = ({ onLogin }: LoginProps) => {
             </svg>
           </div>
           <h2 className="mt-3 text-center text-3xl font-extrabold text-gray-900">FitHub Pro</h2>
-          <p className="mt-2 text-center text-sm text-gray-600">Sign in to manage your fitness journey</p>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            Sign in to manage your fitness journey
+          </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
@@ -92,7 +94,7 @@ const Login = ({ onLogin }: LoginProps) => {
                 name="role"
                 className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
                 value={role}
-                onChange={(e) => setRole(e.target.value as "admin" | "trainer" | "member")}
+                onChange={(e) => setRole(e.target.value as 'admin' | 'trainer' | 'member')}
               >
                 <option value="admin">Admin</option>
                 <option value="trainer">Trainer</option>
@@ -131,7 +133,10 @@ const Login = ({ onLogin }: LoginProps) => {
 
         {/* Back to home link */}
         <div className="mt-4 text-center">
-          <Link to="/" className="inline-flex items-center text-sm text-primary hover:text-primary/80">
+          <Link
+            to="/"
+            className="inline-flex items-center text-sm text-primary hover:text-primary/80"
+          >
             <ArrowLeftIcon className="h-4 w-4 mr-1" />
             Back to home page
           </Link>

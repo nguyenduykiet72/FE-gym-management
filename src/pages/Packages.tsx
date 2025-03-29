@@ -1,64 +1,69 @@
-import { CheckIcon } from "@heroicons/react/24/outline";
+import { CheckIcon } from '@heroicons/react/24/outline';
 
 const packages = [
   {
     id: 1,
-    name: "Monthly",
-    description: "Perfect for getting started",
-    price: "$49",
-    duration: "1 month",
+    name: 'Monthly',
+    description: 'Perfect for getting started',
+    price: '$49',
+    duration: '1 month',
     features: [
-      "Unlimited gym access",
-      "2 free personal training sessions",
-      "Access to group classes",
-      "Locker access",
-      "Fitness assessment",
+      'Unlimited gym access',
+      '2 free personal training sessions',
+      'Access to group classes',
+      'Locker access',
+      'Fitness assessment',
     ],
     popular: false,
   },
   {
     id: 2,
-    name: "Quarterly",
-    description: "Our most popular package",
-    price: "$129",
-    duration: "3 months",
+    name: 'Quarterly',
+    description: 'Our most popular package',
+    price: '$129',
+    duration: '3 months',
     features: [
-      "Unlimited gym access",
-      "6 free personal training sessions",
-      "Access to all group classes",
-      "Locker access",
-      "Fitness assessment",
-      "Nutrition consultation",
-      "Access to premium equipment",
+      'Unlimited gym access',
+      '6 free personal training sessions',
+      'Access to all group classes',
+      'Locker access',
+      'Fitness assessment',
+      'Nutrition consultation',
+      'Access to premium equipment',
     ],
     popular: true,
   },
   {
     id: 3,
-    name: "Annual",
-    description: "Best value for committed members",
-    price: "$449",
-    duration: "12 months",
+    name: 'Annual',
+    description: 'Best value for committed members',
+    price: '$449',
+    duration: '12 months',
     features: [
-      "Unlimited gym access",
-      "18 free personal training sessions",
-      "Access to all group classes",
-      "Premium locker access",
-      "Quarterly fitness assessments",
-      "Nutrition consultation",
-      "Access to premium equipment",
-      "Free guest passes (4 per year)",
-      "Exclusive member events",
+      'Unlimited gym access',
+      '18 free personal training sessions',
+      'Access to all group classes',
+      'Premium locker access',
+      'Quarterly fitness assessments',
+      'Nutrition consultation',
+      'Access to premium equipment',
+      'Free guest passes (4 per year)',
+      'Exclusive member events',
     ],
     popular: false,
   },
   {
     id: 4,
-    name: "Pay-as-you-go",
-    description: "Flexible option with no commitment",
-    price: "$15",
-    duration: "per day",
-    features: ["Daily gym access", "Group classes (additional fee)", "Locker access", "No long-term commitment"],
+    name: 'Pay-as-you-go',
+    description: 'Flexible option with no commitment',
+    price: '$15',
+    duration: 'per day',
+    features: [
+      'Daily gym access',
+      'Group classes (additional fee)',
+      'Locker access',
+      'No long-term commitment',
+    ],
     popular: false,
   },
 ];
@@ -81,11 +86,13 @@ const Packages = () => {
               <div
                 key={pkg.id}
                 className={`rounded-lg shadow-lg overflow-hidden ${
-                  pkg.popular ? "ring-2 ring-primary transform scale-105 z-10" : ""
+                  pkg.popular ? 'ring-2 ring-primary transform scale-105 z-10' : ''
                 }`}
               >
                 {pkg.popular && (
-                  <div className="bg-primary text-white text-center py-1 text-sm font-medium">Most Popular</div>
+                  <div className="bg-primary text-white text-center py-1 text-sm font-medium">
+                    Most Popular
+                  </div>
                 )}
                 <div className="bg-white p-6">
                   <div className="text-center">
@@ -110,9 +117,9 @@ const Packages = () => {
 
                   <div className="mt-8">
                     <button
-                      className={`w-full ${pkg.popular ? "btn btn-primary" : "btn btn-outline hover:bg-gray-50"}`}
+                      className={`w-full ${pkg.popular ? 'btn btn-primary' : 'btn btn-outline hover:bg-gray-50'}`}
                     >
-                      {pkg.popular ? "Get Started" : "Learn More"}
+                      {pkg.popular ? 'Get Started' : 'Learn More'}
                     </button>
                   </div>
                 </div>
@@ -127,7 +134,9 @@ const Packages = () => {
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">Personal Training Sessions</h3>
                 <div className="mt-2 text-gray-700">
-                  <p className="text-sm mb-4">Work with our certified trainers to achieve your fitness goals faster</p>
+                  <p className="text-sm mb-4">
+                    Work with our certified trainers to achieve your fitness goals faster
+                  </p>
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span>Single Session</span>
@@ -169,7 +178,9 @@ const Packages = () => {
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="text-lg font-medium text-gray-900">Special Programs</h3>
                 <div className="mt-2 text-gray-700">
-                  <p className="text-sm mb-4">Join our specialized fitness programs for targeted results</p>
+                  <p className="text-sm mb-4">
+                    Join our specialized fitness programs for targeted results
+                  </p>
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span>Weight Loss Camp (8 weeks)</span>

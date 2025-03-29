@@ -1,88 +1,94 @@
-import { useState } from "react";
-import { PlusIcon, CalendarDaysIcon, UserGroupIcon, UserIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react';
+import {
+  PlusIcon,
+  CalendarDaysIcon,
+  UserGroupIcon,
+  UserIcon,
+  ClockIcon,
+} from '@heroicons/react/24/outline';
 
 // Mock data for schedule events
 const initialEvents = [
   {
     id: 1,
-    title: "Yoga Class",
-    trainer: "Anna Smith",
-    type: "group",
-    date: "2023-07-15",
-    startTime: "09:00",
-    endTime: "10:00",
+    title: 'Yoga Class',
+    trainer: 'Anna Smith',
+    type: 'group',
+    date: '2023-07-15',
+    startTime: '09:00',
+    endTime: '10:00',
     capacity: 15,
     enrolled: 8,
   },
   {
     id: 2,
-    title: "HIIT Training",
-    trainer: "Michael Chen",
-    type: "group",
-    date: "2023-07-15",
-    startTime: "11:00",
-    endTime: "12:00",
+    title: 'HIIT Training',
+    trainer: 'Michael Chen',
+    type: 'group',
+    date: '2023-07-15',
+    startTime: '11:00',
+    endTime: '12:00',
     capacity: 12,
     enrolled: 10,
   },
   {
     id: 3,
-    title: "Personal Training",
-    trainer: "Tom Johnson",
-    type: "personal",
-    date: "2023-07-15",
-    startTime: "14:00",
-    endTime: "15:00",
+    title: 'Personal Training',
+    trainer: 'Tom Johnson',
+    type: 'personal',
+    date: '2023-07-15',
+    startTime: '14:00',
+    endTime: '15:00',
     capacity: 1,
     enrolled: 1,
-    member: "John Smith",
+    member: 'John Smith',
   },
   {
     id: 4,
-    title: "Pilates",
-    trainer: "Lisa Rodriguez",
-    type: "group",
-    date: "2023-07-16",
-    startTime: "10:00",
-    endTime: "11:00",
+    title: 'Pilates',
+    trainer: 'Lisa Rodriguez',
+    type: 'group',
+    date: '2023-07-16',
+    startTime: '10:00',
+    endTime: '11:00',
     capacity: 10,
     enrolled: 5,
   },
   {
     id: 5,
-    title: "Weight Training",
-    trainer: "Tom Johnson",
-    type: "group",
-    date: "2023-07-16",
-    startTime: "13:00",
-    endTime: "14:00",
+    title: 'Weight Training',
+    trainer: 'Tom Johnson',
+    type: 'group',
+    date: '2023-07-16',
+    startTime: '13:00',
+    endTime: '14:00',
     capacity: 8,
     enrolled: 4,
   },
   {
     id: 6,
-    title: "Personal Training",
-    trainer: "Michael Chen",
-    type: "personal",
-    date: "2023-07-16",
-    startTime: "16:00",
-    endTime: "17:00",
+    title: 'Personal Training',
+    trainer: 'Michael Chen',
+    type: 'personal',
+    date: '2023-07-16',
+    startTime: '16:00',
+    endTime: '17:00',
     capacity: 1,
     enrolled: 1,
-    member: "Sarah Johnson",
+    member: 'Sarah Johnson',
   },
 ];
 
-const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const Schedules = () => {
   const [events, setEvents] = useState(initialEvents);
-  const [selectedDate, setSelectedDate] = useState("2023-07-15");
+  const [selectedDate, setSelectedDate] = useState('2023-07-15');
   const [showModal, setShowModal] = useState(false);
 
   // Get current date for the calendar
   const today = new Date();
-  const currentMonth = today.toLocaleString("default", { month: "long" });
+  const currentMonth = today.toLocaleString('default', { month: 'long' });
   const currentYear = today.getFullYear();
 
   // Filter events by selected date
@@ -100,8 +106,8 @@ const Schedules = () => {
 
   // Sort time slots
   const sortedTimeSlots = Object.keys(groupedEvents).sort((a, b) => {
-    const timeA = a.split(" - ")[0];
-    const timeB = b.split(" - ")[0];
+    const timeA = a.split(' - ')[0];
+    const timeB = b.split(' - ')[0];
     return timeA.localeCompare(timeB);
   });
 
@@ -115,7 +121,7 @@ const Schedules = () => {
       const date = new Date(currentDate);
       date.setDate(currentDate.getDate() + i);
 
-      const formattedDate = date.toISOString().split("T")[0];
+      const formattedDate = date.toISOString().split('T')[0];
       const dayOfWeek = daysOfWeek[date.getDay()];
       const dayOfMonth = date.getDate();
 
@@ -166,14 +172,16 @@ const Schedules = () => {
               <button
                 key={date.date}
                 className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
-                  date.date === selectedDate ? "bg-primary text-white" : "bg-white text-gray-700 hover:bg-gray-100"
+                  date.date === selectedDate
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
                 onClick={() => handleDateSelect(date.date)}
               >
                 <span className="text-xs font-medium">{date.dayOfWeek.slice(0, 3)}</span>
                 <span
                   className={`text-lg font-semibold ${
-                    date.isToday && date.date !== selectedDate ? "text-primary" : ""
+                    date.isToday && date.date !== selectedDate ? 'text-primary' : ''
                   }`}
                 >
                   {date.dayOfMonth}
@@ -186,12 +194,12 @@ const Schedules = () => {
           <div className="bg-white shadow overflow-hidden rounded-lg">
             <div className="px-4 py-5 sm:px-6 bg-gray-50 border-b border-gray-200">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
-                Schedule for{" "}
-                {new Date(selectedDate).toLocaleDateString("en-US", {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
+                Schedule for{' '}
+                {new Date(selectedDate).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
                 })}
               </h3>
             </div>
@@ -210,7 +218,9 @@ const Schedules = () => {
                         <div
                           key={event.id}
                           className={`p-4 rounded-lg border ${
-                            event.type === "group" ? "border-blue-200 bg-blue-50" : "border-green-200 bg-green-50"
+                            event.type === 'group'
+                              ? 'border-blue-200 bg-blue-50'
+                              : 'border-green-200 bg-green-50'
                           }`}
                         >
                           <div className="flex justify-between items-start">
@@ -220,19 +230,21 @@ const Schedules = () => {
                             </div>
                             <span
                               className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                                event.type === "group" ? "bg-blue-100 text-blue-800" : "bg-green-100 text-green-800"
+                                event.type === 'group'
+                                  ? 'bg-blue-100 text-blue-800'
+                                  : 'bg-green-100 text-green-800'
                               }`}
                             >
-                              {event.type === "group" ? (
+                              {event.type === 'group' ? (
                                 <UserGroupIcon className="h-3 w-3 mr-1" />
                               ) : (
                                 <UserIcon className="h-3 w-3 mr-1" />
                               )}
-                              {event.type === "group" ? "Group" : "Personal"}
+                              {event.type === 'group' ? 'Group' : 'Personal'}
                             </span>
                           </div>
 
-                          {event.type === "group" ? (
+                          {event.type === 'group' ? (
                             <div className="mt-2 flex items-center text-xs text-gray-500">
                               <span className="mr-2">
                                 {event.enrolled}/{event.capacity} enrolled
@@ -249,9 +261,13 @@ const Schedules = () => {
                           )}
 
                           <div className="mt-3 flex justify-end space-x-2">
-                            <button className="text-xs text-primary hover:text-primary/80">Details</button>
-                            {event.type === "group" && event.enrolled < event.capacity && (
-                              <button className="text-xs text-secondary hover:text-secondary/80">Enroll</button>
+                            <button className="text-xs text-primary hover:text-primary/80">
+                              Details
+                            </button>
+                            {event.type === 'group' && event.enrolled < event.capacity && (
+                              <button className="text-xs text-secondary hover:text-secondary/80">
+                                Enroll
+                              </button>
                             )}
                           </div>
                         </div>

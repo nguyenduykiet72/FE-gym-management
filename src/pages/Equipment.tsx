@@ -1,91 +1,91 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   MagnifyingGlassIcon,
   ExclamationTriangleIcon,
   WrenchScrewdriverIcon,
   CheckCircleIcon,
-} from "@heroicons/react/24/outline";
+} from '@heroicons/react/24/outline';
 
 // Mock data for equipment
 const initialEquipment = [
   {
     id: 1,
-    name: "Treadmill",
-    model: "T-2000",
-    location: "Cardio Area",
-    status: "Available",
-    lastMaintenance: "06/15/2023",
-    nextMaintenance: "09/15/2023",
+    name: 'Treadmill',
+    model: 'T-2000',
+    location: 'Cardio Area',
+    status: 'Available',
+    lastMaintenance: '06/15/2023',
+    nextMaintenance: '09/15/2023',
   },
   {
     id: 2,
-    name: "Leg Press",
-    model: "LP-500",
-    location: "Weight Area",
-    status: "Available",
-    lastMaintenance: "05/20/2023",
-    nextMaintenance: "08/20/2023",
+    name: 'Leg Press',
+    model: 'LP-500',
+    location: 'Weight Area',
+    status: 'Available',
+    lastMaintenance: '05/20/2023',
+    nextMaintenance: '08/20/2023',
   },
   {
     id: 3,
-    name: "Bench Press",
-    model: "BP-300",
-    location: "Weight Area",
-    status: "Available",
-    lastMaintenance: "07/05/2023",
-    nextMaintenance: "10/05/2023",
+    name: 'Bench Press',
+    model: 'BP-300',
+    location: 'Weight Area',
+    status: 'Available',
+    lastMaintenance: '07/05/2023',
+    nextMaintenance: '10/05/2023',
   },
   {
     id: 4,
-    name: "Elliptical",
-    model: "E-1500",
-    location: "Cardio Area",
-    status: "Maintenance",
-    lastMaintenance: "07/10/2023",
-    nextMaintenance: "07/15/2023",
+    name: 'Elliptical',
+    model: 'E-1500',
+    location: 'Cardio Area',
+    status: 'Maintenance',
+    lastMaintenance: '07/10/2023',
+    nextMaintenance: '07/15/2023',
   },
   {
     id: 5,
-    name: "Smith Machine",
-    model: "SM-700",
-    location: "Weight Area",
-    status: "Out of Order",
-    lastMaintenance: "04/25/2023",
-    nextMaintenance: "07/25/2023",
+    name: 'Smith Machine',
+    model: 'SM-700',
+    location: 'Weight Area',
+    status: 'Out of Order',
+    lastMaintenance: '04/25/2023',
+    nextMaintenance: '07/25/2023',
   },
   {
     id: 6,
-    name: "Cable Machine",
-    model: "CM-800",
-    location: "Weight Area",
-    status: "Available",
-    lastMaintenance: "06/30/2023",
-    nextMaintenance: "09/30/2023",
+    name: 'Cable Machine',
+    model: 'CM-800',
+    location: 'Weight Area',
+    status: 'Available',
+    lastMaintenance: '06/30/2023',
+    nextMaintenance: '09/30/2023',
   },
   {
     id: 7,
-    name: "Rowing Machine",
-    model: "RM-400",
-    location: "Cardio Area",
-    status: "Available",
-    lastMaintenance: "05/15/2023",
-    nextMaintenance: "08/15/2023",
+    name: 'Rowing Machine',
+    model: 'RM-400',
+    location: 'Cardio Area',
+    status: 'Available',
+    lastMaintenance: '05/15/2023',
+    nextMaintenance: '08/15/2023',
   },
   {
     id: 8,
-    name: "Stationary Bike",
-    model: "SB-200",
-    location: "Cardio Area",
-    status: "Maintenance",
-    lastMaintenance: "07/08/2023",
-    nextMaintenance: "07/12/2023",
+    name: 'Stationary Bike',
+    model: 'SB-200',
+    location: 'Cardio Area',
+    status: 'Maintenance',
+    lastMaintenance: '07/08/2023',
+    nextMaintenance: '07/12/2023',
   },
 ];
 
 const Equipment = () => {
   const [equipment, setEquipment] = useState(initialEquipment);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("All");
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterStatus, setFilterStatus] = useState('All');
 
   // Filter equipment based on search and status filter
   const filteredEquipment = equipment.filter(
@@ -93,14 +93,14 @@ const Equipment = () => {
       (item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.location.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      (filterStatus === "All" || item.status === filterStatus)
+      (filterStatus === 'All' || item.status === filterStatus)
   );
 
   // Count equipment by status
   const statusCounts = {
-    Available: equipment.filter((item) => item.status === "Available").length,
-    Maintenance: equipment.filter((item) => item.status === "Maintenance").length,
-    "Out of Order": equipment.filter((item) => item.status === "Out of Order").length,
+    Available: equipment.filter((item) => item.status === 'Available').length,
+    Maintenance: equipment.filter((item) => item.status === 'Maintenance').length,
+    'Out of Order': equipment.filter((item) => item.status === 'Out of Order').length,
   };
 
   // Update equipment status
@@ -123,9 +123,13 @@ const Equipment = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Available Equipment</dt>
+                    <dt className="text-sm font-medium text-gray-500 truncate">
+                      Available Equipment
+                    </dt>
                     <dd>
-                      <div className="text-lg font-medium text-gray-900">{statusCounts.Available}</div>
+                      <div className="text-lg font-medium text-gray-900">
+                        {statusCounts.Available}
+                      </div>
                     </dd>
                   </dl>
                 </div>
@@ -141,9 +145,13 @@ const Equipment = () => {
                 </div>
                 <div className="ml-5 w-0 flex-1">
                   <dl>
-                    <dt className="text-sm font-medium text-gray-500 truncate">Under Maintenance</dt>
+                    <dt className="text-sm font-medium text-gray-500 truncate">
+                      Under Maintenance
+                    </dt>
                     <dd>
-                      <div className="text-lg font-medium text-gray-900">{statusCounts.Maintenance}</div>
+                      <div className="text-lg font-medium text-gray-900">
+                        {statusCounts.Maintenance}
+                      </div>
                     </dd>
                   </dl>
                 </div>
@@ -161,7 +169,9 @@ const Equipment = () => {
                   <dl>
                     <dt className="text-sm font-medium text-gray-500 truncate">Out of Order</dt>
                     <dd>
-                      <div className="text-lg font-medium text-gray-900">{statusCounts["Out of Order"]}</div>
+                      <div className="text-lg font-medium text-gray-900">
+                        {statusCounts['Out of Order']}
+                      </div>
                     </dd>
                   </dl>
                 </div>
@@ -185,7 +195,11 @@ const Equipment = () => {
             />
           </div>
           <div className="flex space-x-2">
-            <select className="input" value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+            <select
+              className="input"
+              value={filterStatus}
+              onChange={(e) => setFilterStatus(e.target.value)}
+            >
               <option value="All">All Status</option>
               <option value="Available">Available</option>
               <option value="Maintenance">Maintenance</option>
@@ -242,11 +256,11 @@ const Equipment = () => {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span
                       className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        item.status === "Available"
-                          ? "bg-green-100 text-green-800"
-                          : item.status === "Maintenance"
-                          ? "bg-yellow-100 text-yellow-800"
-                          : "bg-red-100 text-red-800"
+                        item.status === 'Available'
+                          ? 'bg-green-100 text-green-800'
+                          : item.status === 'Maintenance'
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : 'bg-red-100 text-red-800'
                       }`}
                     >
                       {item.status}
@@ -294,7 +308,10 @@ const Equipment = () => {
                   thirtyDaysFromNow.setDate(today.getDate() + 30);
                   return nextDate >= today && nextDate <= thirtyDaysFromNow;
                 })
-                .sort((a, b) => new Date(a.nextMaintenance).getTime() - new Date(b.nextMaintenance).getTime())
+                .sort(
+                  (a, b) =>
+                    new Date(a.nextMaintenance).getTime() - new Date(b.nextMaintenance).getTime()
+                )
                 .map((item) => (
                   <li key={item.id} className="py-4 flex items-center justify-between">
                     <div className="flex items-center">
